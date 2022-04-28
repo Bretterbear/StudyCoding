@@ -1,0 +1,12 @@
+﻿  CodingInterview Ch1.cpp
+C:\Users\bhans\source\repos\CodingInterview Ch1\CodingInterview Ch1\CodingInterview Ch1.cpp(225,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bhans\source\repos\CodingInterview Ch1\CodingInterview Ch1\CodingInterview Ch1.cpp(258,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bhans\source\repos\CodingInterview Ch1\CodingInterview Ch1\CodingInterview Ch1.cpp(273,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bhans\source\repos\CodingInterview Ch1\CodingInterview Ch1\CodingInterview Ch1.cpp(299,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bhans\source\repos\CodingInterview Ch1\CodingInterview Ch1\CodingInterview Ch1.cpp(335,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bhans\source\repos\CodingInterview Ch1\CodingInterview Ch1\CodingInterview Ch1.cpp(362,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bhans\source\repos\CodingInterview Ch1\CodingInterview Ch1\CodingInterview Ch1.cpp(446,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bhans\source\repos\CodingInterview Ch1\CodingInterview Ch1\CodingInterview Ch1.cpp(449,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bhans\source\repos\CodingInterview Ch1\CodingInterview Ch1\CodingInterview Ch1.cpp(466,17): warning C4018: '>': signed/unsigned mismatch
+C:\Users\bhans\source\repos\CodingInterview Ch1\CodingInterview Ch1\CodingInterview Ch1.cpp(475,20): warning C4018: '<': signed/unsigned mismatch
+  CodingInterview Ch1.vcxproj -> C:\Users\bhans\source\repos\CodingInterview Ch1\Debug\CodingInterview Ch1.exe

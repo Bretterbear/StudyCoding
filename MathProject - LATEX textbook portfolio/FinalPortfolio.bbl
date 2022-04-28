@@ -1,0 +1,58 @@
+\begin{thebibliography}{10}
+
+\bibitem{MathHistory}
+Mactutor history of mathematics.
+\newblock {http://www-history.mcs.st-and.ac.uk/}.
+\newblock Accessed: 2015-03-15.
+
+\bibitem{DiffEq}
+Steven~L Campbell and Richard Haberman.
+\newblock {\em Introduction to Differential Equations with Dynamical Systems}.
+\newblock Princeton University Press, 2008.
+
+\bibitem{BookBridge}
+Peter~J Eccles.
+\newblock {\em An Introduction to Mathematical Reasoning}.
+\newblock Cambridge University Press, 1st edition, 2007.
+
+\bibitem{NumAnaly}
+Frank Giordano, Maurice Weir, and William Fox.
+\newblock {\em A First Course in Mathematical Modelling}.
+\newblock 3rd edition.
+
+\bibitem{Johnson}
+R.~Johnson and F.~Kiokemeister.
+\newblock {\em Calculus with Analytic Geometry}.
+\newblock ALLYN and BACON, 1960.
+
+\bibitem{Stats}
+Ron Larsen and Betsy Farber.
+\newblock {\em Elementary Statistics, Picturing the World}.
+\newblock Pearson, 6th edition, 2015.
+
+\bibitem{Linear}
+Seymour Lipschutz and Marc Lipson.
+\newblock {\em Schaum's Outline of Theory and Problems of Linear Algebra}.
+\newblock McGraw Hill, 3rd edition, 2001.
+
+\bibitem{ModernAlg}
+Neal McCoy and Gerald Janusz.
+\newblock {\em An Introduction to Abstract Algebra}.
+\newblock Trustworthy Communications, 7th edition, 2009.
+
+\bibitem{Saxon}
+J.~Saxon and F.~Wang.
+\newblock {\em Calculus with Trigonometry and Analytic Geometry}.
+\newblock Saxon Publishers, 1997.
+
+\bibitem{Calculus}
+James Stewart.
+\newblock {\em Calculus Early Transcendentals}.
+\newblock 2008.
+
+\bibitem{IntroAnalysis}
+William~R. Wade.
+\newblock {\em An Introduction to Analysis}.
+\newblock Prentice Hall, 4th edition, 2010.
+
+\end{thebibliography}

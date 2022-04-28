@@ -1,0 +1,146 @@
+\section{Statistics} %Each summary that you do in this class will be a section.  Use \subsection and \subsubsection commands to create sections within the summary.
+
+Statistics has always had an interesting relationship with mathematics. In some schools, statistics departments are held separate from the math department. Regardless, statistics is another valuable tool in a mathematicians arsenal.\newline
+
+The information for the following summary of elementary statistics is taken from~\cite{Stats}. Please note that the examples are also drawn from this text as I no longer have my notes from the course.
+
+\subsection{Introduction to statistics}
+
+Statistics is the branch of mathematics concerned with the collecting, organizing, analysing, and interpreting of data in order to gain some insight regarding a population or make decisions.\newline
+
+ This is an extremely broad definition, and we would do well to firmly define a couple of the terms in it.
+
+\begin{definition} 
+Data: Consists of information coming from observations, measurements or responses.
+\end{definition} 
+
+From this we see that data can take many forms, both social and physical. Next we must firmly define what populations and samples are.
+
+\begin{definition} 
+Population: The collection of \emph{all} outcomes, responses, measurements or counts that are of interest. Examples include: All people in a country, the set of all cars in the US, and the student body of a college.
+\end{definition} 
+
+\begin{definition} 
+Sample: a subset or part of the population.
+\end{definition} 
+
+Note that our definition of sample gives no warranty as to the capacity of a sample to be representative of its population. In fact, one of the earliest problems covered in statistics is how to take a good sample that is representative of the whole. Without a good sample, everything else we do in statistics is effectively worthless.\newline
+
+There are two more important definitions that we will often use in our discussions of statistics, namely parameters and statistics, which can be defined as follows:
+
+\begin{definition}
+Parameter: A numerical description of a population characteristic.
+\end{definition} 
+
+\begin{definition}
+Statistic: A numerical description of a sample characteristic.
+\end{definition} 
+
+If we have a good sample (i.e. one that as representative of the population) then our statistic will correspond strongly with a parameter regarding our population. As such, we can determine some characteristic about even an exceedingly large population with some degree of confidence based on a much more manageable smaller sample.\newline
+
+Now that we have defined the basic terminology of statistics, let us examine the two major branches of statistics.\newline
+
+Descriptive statistics is the branch of statistics which involves the organization, summarization and displaying of data.\newline
+
+Inferential statistics is the branch of statistics concerned with using a sample to draw conclusions regarding a population. A basic tool of inferential statistics is probability, which we may discuss later. \newline
+
+\subsubsection{Data}
+
+Lets get more granular in our discussion of data. Data can be broadly defined as being one of two types.
+
+\begin{definition}
+Qualitative Data: Data which consists of attributes, labels, or non-numerical features. Things like hair color, race, or political affiliation would be of this type.
+\end{definition} 
+
+\begin{definition}
+Quantitative Data: Data which consists of numerical measurements or counts. Features such as age, GMAT scores, or gross income would be of this type.
+\end{definition} 
+
+As a rule of thumb, if it makes sense to try and find the mean, you're probably dealing with quantitative data. Here is a finer division of types of data.
+
+\begin{theorem}Levels of measurement\newline
+\begin{enumerate}
+
+\item Nominal level: Data at the nominal level of measurement is qualitative only. Data may be categorized using names, labels or qualities. No mathematical computations may be made at this level.
+
+\item Ordinal Level: Data at the ordinal level of measurement may be qualitative or quantitative. Data at this level may be arranged, ordered or ranked, but differences between data entries are not meaningful. Examples include SSID numbers.
+
+\item Interval Level: Data at the interval level of measurement may be ordered, and has meaningful differences between data entries which can be calculated. At the interval level, a zero entry simply represents a position on scale; the entry is not an inherent zero.
+
+\item Ratio Level: Data at the ratio level of measurement is broadly similar to data at the interval level with the added property that a zero entry is an inherent zero. A ratio of two or more entries can be formed so that one entry may be meaningfully expressed as a multiple of another.
+\end{enumerate}
+\end{theorem}
+
+Now we will move on to one of the most important topics in statistics: Data collection.
+
+\subsubsection{Data Collection}
+
+Data collection can be done in several ways. Often, the type of data collection used is dictated by the type of study being done.\newline
+
+A \emph{simulation} is the use of a mathematical or physical model to reproduce the conditions of a situation or process. Collecting data often involves the use of computers. Simulations allow you to study situations that are impractical or even dangerous to create in real life, and often save time and money. For instance, automobile manufacturers use simulations with dummies to study the effect of crashes on humans.\newline
+
+A \emph{Survey} is an investigation of one or more characteristics of a population. Most often, surveys are carried out on people by asking them questions. The most common types of surveys are done by interviews, internet, phone or mail. In designing a survey, one must be careful to write the questions in such a way that they do not lead to a biased results. For example, when surveying to determine attitudes towards a rezoning ordinance, one shouldn't ask  a leading question such as: do you feel that our community would be served by more liquor stores near our children's schools?\newline
+
+When one does a survey or a simulation, they must be aware of the effect of a confounding variable upon their study.
+
+\begin{definition}
+Confounding variable: A confounding variable occurs when an experimenter cannot tell the difference between the effects of different factors on the variable.
+\end{definition} 
+
+As an example, if a coffee shop remodels to increase the flow of business and a shopping mall opens next door leading to increased foot traffic, it would be difficult to determine what was the procuring cause of any increased business.\newline
+
+A common cause for error in the medical industry is the idea of the placebo effect.
+
+\begin{definition}
+Placebo effect: occurs when a subject reacts favourably to a placebo when in fact they have been given a fake treatment. This can make it difficult to determine the efficacy of the actual treatment being tested.
+\end{definition} 
+
+In order to help control and minimize the placebo effect, we can put blinding procedures in place.
+
+\begin{definition}
+Blinding: A technique in which some party is not aware whether they are receiving a treatment or a placebo. To take this a step further and remove any sort of bias, trials may be double blind, meaning that the doctor administering the treatment does not know whether the subject is getting a placebo or a genuine treatment.
+\end{definition} 
+
+Now let us move on to the realm of descriptive statistics.
+
+\subsection{Descriptive Statistics}
+
+There are several things to look at when examining a set of data. Some important characteristics include its center (where do data points tend to gravitate towards), its variability (how far do data points spread away from our center), and its shape (normal, bimodal, etc). This brings us to our first statistics.
+
+\subsubsection{Mean, Median, and Mode}
+A measure of central tendency is a value that represents the typical entry in a set of data. This is a figure we would very much like to know about, and as such, we have 3 very basic methods of determining the typical point in a data set.\newline
+
+A \emph{mean} is the sum of a group of data points divided by the number of data points in the set. Or, to put it in mathematical terminology $$ \frac{\Sigma{x}}{n}$$ where n is the number of data points in the set being averaged. \newline
+
+The \emph{median} of a data set is the point which lies in the middle of a set when it is ordered numerically. If the data set has an even number of elements, and no point lies precisely in the middle, then the median is the average of the two middle-most data points.\newline
+
+The \emph{mode} of a data set is the element(s) which occur with the greatest frequency. Note that a set may have 0,1,2 or more modes.\newline
+
+In beginning our discussion of descriptive statistics, we come now to the hairy subject of outliers.
+
+\begin{definition}
+An \emph{outlier} is a data entry that is far removed from the other entries in a data set. We may later discuss statistically valid ways to remove outliers from our data sets.
+\end{definition} 
+
+We may also do what is called a weighted mean, where each entry is given a comparative weight which is factored into the final mean score. This looks like $$\frac{\Sigma{x * w}}{n}.$$ An example of a weighted mean that is familiar to all students is the varying weights given to various components of coursework. For example, our final exam may be worth $25\%$ of our grade, while homework may count for only $10\%.$\newline
+
+Now we move on to two extremely fundamental concepts in the realm of descriptive statistics: standard deviation and variance., both of which are measures of the average data point's deviance from the mean.\newline
+
+The \emph{Population Variance} is defined as follows $$\sigma^2 = \frac{\Sigma(x-\mu)^2}{N}$$ However, there is one distinct disadvantage to variance: it does not have the same units as the thing measured; in fact its units are squared. To get around this issue, we take the square root, giving us the \emph{Population Standard Deviation} $$\sigma = \sqrt{\frac{\Sigma(x-\mu)^2}{N}}.$$
+
+Please note that these formulas work identically for a sample instead of a population.\newline
+
+There is a quick rule of thumb regarding standard deviations and the normal curve which bears mentioning.
+
+\begin{theorem}
+	\emph{The 68-95-99.7 Rule}\newline
+	\begin{enumerate}
+		\item Approximately $68\%$ of the data lies within one standard deviation of the mean.
+		\item Approximately $95\%$ of the data lies within two standard deviations of the mean.
+		\item Approximately $99.7\%$ of the data lies within three standard deviations of the mean.
+	\end{enumerate}
+\end{theorem}
+
+Please note that this rule only applies to data which has a roughly normal distribution. This may seem quite esoteric, but a shocking number of things in the real world follow a normal curve with regards to distribution. \newline
+
+Last but not least, we will mention the coefficient of variation. The coefficient of variation is a nifty statistic which expresses standard deviation as a percentage of the mean. In a population, it would look like so $$\frac{\sigma}{\mu}.$$

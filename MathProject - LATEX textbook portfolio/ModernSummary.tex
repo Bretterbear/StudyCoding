@@ -1,0 +1,198 @@
+\section{Modern Algebra}%Leave this line as is.
+%NOTE: The subsections and subsubsections below are for idea purposes only.  DELETE subsections/subsubsections below and only put subsections/subsubsections in your summary that you are developing.  You are advised to pick one topic of your choice that was covered in your modern algebra course to develop for the summary.  You should try to incorporate examples of your work.
+Now we will be moving on to the field of modern, or abstract algebra. This is a field concerned with the structure, and behavior of systems where the regular rules that we've learned about mathematical operations may not necessarily apply.\newline
+
+Information in this summary is gleaned from~\cite{ModernAlg}. The examples included are also from the same source. My own notes regarding this course were lost.
+
+\subsection{Groups and Isomorphisms of Groups}
+Fundamental to the discussion of modern algebra is the idea of a group. Let us first define a group
+
+\begin{definition}
+A \emph{group} $\langle G , * \rangle$ is defined as a set G closed under a binary operation *, such that several axioms are satisfied. These axioms are: \newline
+
+Axiom 1: $ \forall$ $a,b,c \in G $ we have \newline
+$(a*b)*c = a*(b*c).$\newline
+That is to say, * is associative in G \newline
+
+Axiom 2: $ \exists e \in G$ such that $\forall x \in G$ we have \newline
+$e*x = x*e = x.$ \newline
+In other words, an identity element exists in G for the operation *. \newline
+
+Axiom 3: Corresponding to each $a \in G,$ there is an element $a' \in G$ such that \newline
+$a*a'=a'*a = e.$ \newline
+To put it simply, every element in G has an inverse element in G with respect to the operation *.
+
+\end{definition}
+
+Please note that a group is not necessarily \emph{abelian}
+
+\begin{definition}
+	A group is called abelian if its binary operation is commutative.
+\end{definition}
+
+This is a very big definition, and there are a few bits of housekeeping regarding definitions that we must take care of before we move on. First, since a group is defined as a set closed under a binary operation *, lets talk about binary operations.
+
+\begin{definition}
+A binary operation * on a set S is a function mapping $S \times S$ into S. \newline
+For each $(a,b)$ in $S \times S$, we will denote the element $*((a,b))$ of S by $a*b$ 
+\end{definition}
+
+We may regard a binary operation * on a set S as a function assigning an element $a*b$ to each ordered pair $(a,b)$ in S. \newline
+
+We will now proceed with a couple of examples of binary operations to ensure that we are familiar with their properties in action.
+
+\begin{example}
+The normal addition operation and the normal multiplication operation is a binary operation on some of the fundamental sets such as $\mathbb{R},\mathbb{Z},\mathbb{C}$ et cetera.
+\end{example}
+
+In the previous example, addition was a binary operation because the result of the two operands couldn't be outside the set. New we'll take a look at the addition operation in a different set and see if it is still a binary operation
+
+\begin{example}
+Let + be the usual addition operation and let a set A include all of $\mathbb{Z}^+$ and -1. \newline
+If + is a binary operation, then $a+b \in A$  $\forall a,b \in A$ \newline
+However, if $a=b=-1$ then $a+b = -2$ and $-2 \notin A.$ \newline
+Therefore, we can conclude that + is not a binary operation on A
+\end{example}
+
+This shows us that even an operation which we know to be a binary operation in many cases is not necessarily one for a particular set.
+
+\begin{example}
+Let / be the usual division operation.
+If / is a binary operation on $\mathbb{Z}$ then $a / b \in \mathbb{Z}$ for all $a,b \in \mathbb{Z}$ \newline
+However, if $a < b$ then $a / b \notin \mathbb{Z}.$ \newline
+Thus we say that / is not a binary operation on $\mathbb{Z}$
+\end{example}
+
+This shows us that even a set which we know to have binary operations will not necessarily support a particular binary operation.\newline
+
+Now we will take a look at the particular traits that the operation * may have in a group, namely: Commutativity and Associativity
+
+\begin{theorem}
+Commutativity: A binary operation * on a set S is \emph{commutative} if and only if $a*b=b*a$ For all $(a,b) \in S$
+\end{theorem}
+
+\begin{theorem}
+Associativity: A binary operation * on a set S is \emph{associative} if and only if $a*(b*c)=(a*b)*c$ For all $(a,b,c) \in S$
+\end{theorem}
+
+Now that we have a sense of binary operations, we will take our discussion into the realm of isomorphisms of binary structures. Please note that we are speaking about general binary structures and not about groups in particular which are a subclass. \newline
+Let us first work to define an isomorphism:
+
+\begin{definition}
+Let $\langle S, * \rangle$ and $\langle S' , *' \rangle$ be binary algebraic structures. \newline
+An \emph{isomorphism} of S with S' is a one to one function $\phi$ mapping S onto S' such that:\newline
+$\phi (x*y)= \phi (x) *' \phi (y)$ for all $x,y \in S.$\newline
+This is the \emph{Homomorphism Property}
+\end{definition}
+
+If such a mapping $(\phi)$ exists, then we say that S and S' are isomorphic binary structures. There are four steps that go into proving that two structures $\langle S, * \rangle$ and $\langle S' , *' \rangle$ are isomorphic.\newline
+
+Step 1: Define our function $\phi$ which gives us our isomorphism of S to S'.\newline
+	Step 2: Show that $\phi$ is a one to one function.\newline
+	Step 3: Show that $\phi$ is onto S' \newline
+	Step 4: Show that $\phi (x*y) - \phi (x) *' \phi (y).$ \newline
+
+Properties of a binary structure can be divided into two separate classes: structural properties and non-structural properties. \newline
+
+Structural properties are those properties that \emph{must} be shared by any isomorphism of the structure. Examples include structure size (if two structures are isomorphic, they must have the same cardinality) or commutativity.\newline
+
+Non-structural properties of a binary structure are those that may or may not be shared by an isomorphism of the structure. Examples of this class include things like having a particular element or the chosen set (i.e. the set $\mathbb{Z}^-$ can be an isomorphism of $\mathbb{Z}^+$ with the addition operation. \newline
+
+Now that we've done all of our housekeeping work, lets move back into groups and show some examples of structures that may or may not be groups.
+
+\begin{example}
+ The binary structure $\langle \mathbb{Z}^+, + \rangle$ is not a group because Axioms 2 and 3 of our definition do not hold. There is not inverse element in $\mathbb{Z}^+$ nor is there an identity element.
+\end{example}
+
+\begin{example}
+The usual addition operation with the sets $\mathbb{Z},$ $\mathbb{Q,}$ $\mathbb{R},$ $\mathbb{C}$ are abelian groups.
+\end{example}
+
+\begin{example}
+The set $\mathbb{Z}^+$ with the usual multiplication operation is not a group because Axiom 3 is violated.\newline
+While there may be an identity element, 1, there is no inverse element for any element but 1.
+\end{example}
+
+We now move on to a few interesting theorems regarding the properties of groups.
+
+\begin{theorem}
+If G is a group with binary operation *, then $a*x = b$ has a unique solution x in G for all $a,b \in G.$ 
+\end{theorem}
+
+\begin{corollary}
+please note that in addition to this, if the group is non-abelian, then $a*x =b$ and $y*a=b$ have unique solutions x and y for $a,b \in G$
+\end{corollary}
+
+This theorem is a natural extension of our Axioms and can be proven as follows:
+
+\begin{proof}
+First we show the existence of at least one solution by just computing that $a'*b$ is a solution of $a*x=b.$ Note that: $$a*(a'*b) = (a*a')*b$$ $$ = e*b,$$ $$=b$$ \newline
+Thus $x = a'*b$ is a solution of $a*x=b*.$ We can use a very similar proof to prove our corollary.
+\end{proof}
+
+What follows is a theorem regarding the existence and uniqueness of identity elements and inverse elements
+
+\begin{theorem}
+In a group G with binary operation *, there is only one element e in G such that $$e*x = x*e = x$$ for all $x \in G.$ Likewise, for each $a \in G,$ there is only one element a' in G such that $$a' * a = a*a' = e$$
+\end{theorem}
+
+\begin{proof}
+For the identity part of this theorem, let us suppose that both e and e' are identity elements of a binary structure S with respect to an operation *. This gives us a system of equation with regards to identity. $$e*e'=e'$$ $$e'*e=e.$$ This system shows that $e=e'.$ That is to say, there is only one identity element.\newline
+
+For the inverse part of the proof, let us suppose that $a \in G$ which has inverses a' and a'' such that $a'*a= a*a'=e$ and $a''*a=a*a''=e.$ Then $$a*a''=a*a'=e$$ Thus, by the cancellation laws, $$a''=a'$$. This shows that the inverse of a in a group G is unique.
+\end{proof}
+
+\begin{corollary}
+Let G be a group. For all $a,b \in G$, we have $(a*b)' = b' * a'.$
+\end{corollary}
+
+\begin{theorem}
+If G is a group with binary operation *, then the left and right cancellation laws hold in G, that is, $a*b = a*c$ implies that $b=c,$ and $b*a = c*a$ implies that $b=c$ for all $a,b,c \in G$ 
+\end{theorem}
+
+\begin{proof}
+Suppose $a*b=a*c$ then by the third group axiom there exists a', and $$a'*(a*b) = a'*(a*c)$$ thus $b=c$ \newline
+We can use a similar proof with $b*a=c*a$ to prove the other side of the cancellation law
+\end{proof}
+
+It is interesting to not that there also exists some binary structures with weaker strictures than a group. \newline
+
+They come in a couple of different flavours including the semigroup, a set with an associative binary operation; another type is a monoid which is a semigroup with an identity element. \newline
+
+All that it lacks is an inverse element which differentiates it from a group.\newline
+
+Last but not least in our discussion of groups, we'll be talking about finite groups. Up until now, we've focused on our attention on infinite groups, that is to say, groups with an unlimited set. \newline
+
+Obviously, the empty set cannot give rise to a group because it has no elements on which to do a binary operation. \newline
+This gives rise to an interesting question: what is the minimal set which may give rise to a group? \newline
+as it turns out, the minimal set which can give rise to a group is the set containing only the identity element. That is to say $\{ e \}.$
+
+\begin{example}
+Let the set S be the set 1, this is a group under the usual multiplication operation.
+\end{example}
+
+Let us look at a larger group S which consists of the elements e and a. We can put all the possible binary operations into the following table:
+
+\begin{center}
+\begin{tabular} {| l || c | r |}
+  \hline
+  * & e & a \\ \hline \hline
+  e &   &   \\ \hline
+  a &   &   \\ \hline
+
+\end{tabular}
+\end{center}
+
+We see here that we must define the result of $a*a,$ if we define it as a or e, the result will be a group.
+
+\begin{center}
+\begin{tabular} {| l || c | r |}
+  \hline
+  * & e & a \\ \hline \hline
+  e & e & a \\ \hline
+  a & a & e \\ \hline
+
+\end{tabular}
+\end{center}
+
+If the result is something outside the bounds of our finite set, we will not have a group.

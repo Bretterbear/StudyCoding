@@ -1,0 +1,207 @@
+
+\section{Bridge to Abstract Mathematics}%Leave this line as is.  
+Notation has a huge impact on the math we can do. As we saw with matrices in our summary of Linear Algebra, proper notation gives us the structure required to think clearly about math and also give us the ability to cogently and simply pass along our arguments in such a way that an observer can easily follow our though processes. This summary of the "bridge to abstract mathematics" will be devoted to the notation, terminology and common techniques that appear in the course.\newline
+
+Please note that unless otherwise stated, the information in the following sections is gleaned from~\cite{BookBridge}. The examples within come from the same source as my own notes on the subject were lost in a move.
+
+\subsection{Truth Tables, Universal Statements, Existential Statements}
+We start our summary with the basic concept of the truth table. The truth table is a basic tool for logic which consists of two separate parts. First, there are columns representing the possible states of certain conditional statements, commonly denoted by letters such as P and Q which can be have the possible values of true or false. Then we have results columns which show the result of certain statements involving our P's and Q's. \newline
+
+Quickly we must do some definition to ensure that there is no confusion. 
+
+\begin{definition}
+$\land$ is the logical shorthand for and will be evaluated as true if the conditionals on both sides are evaluated as true.
+\end{definition}
+
+\begin{definition}
+ $\lor$ is the logical shorthand for or, which will be evaluated as true if the conditionals on either side are evaluated as true.
+\end{definition}
+ 
+  Please note that this is \emph{not} the exclusive or, if both sides are true, the statement is evaluated as true. Last but not least, $\lnot$ is the logical shorthand for not, which inverts the value of the statement made.  \newline
+
+Here is an example of a Truth table for P or Q.
+\begin{example}
+\begin{center}
+\begin{tabular} {| l | c || r |}
+  \hline
+  P & Q & $P \lor Q$ \\ \hline
+  T & F & T \\ \hline
+  F & T & T \\ \hline
+  T & T & T \\ \hline
+  F & F & F \\ \hline  
+\end{tabular}
+\end{center}
+\end{example}
+This concisely shows that the only way for the statement "P or Q" to be false is for P and Q to be false, with every other case making P or Q true. \newline
+
+Now let's take a look at a more complex truth table which makes use of the three logical operations we have defined.
+\begin{example}
+\begin{center}
+\begin{tabular} {| c | c | c || r | r |}
+  \hline
+  P & Q & R & $(P \land Q) \lor \lnot R$ & $\lnot (P \lor Q) \land R$ \\ \hline
+  T & F & F & T & F \\ \hline
+  F & T & F & T & F \\ \hline
+  F & F & T & F & T \\ \hline
+  T & F & T & F & F \\ \hline  
+  T & T & F & T & F \\ \hline
+  F & T & T & F & F \\ \hline
+  T & T & T & F & F \\ \hline
+  F & F & F & T & F \\ \hline
+\end{tabular}
+\end{center}
+\end{example}
+This shows the utility of truth tables because you can very easily see the truth value of a statement with only a glance at the table. \newline
+
+Let's take a brief look at two fundamental types of statements that we can make. \newline
+
+The universal statement is one which states something for a field of certain proscribed values. If you see something like $\forall X \in R$ which reads "For all X in the set of Real Numbers", you will know they are making a universal statement. \newline
+
+The existential statement is one which asserts the existence of a particular value that makes some statement true. If you see something like $\exists x \in Z$ which reads as "There exists some x in the set of Integers" then you will know you are dealing with an existential statement.
+
+\subsection{Sets and Set Operations}
+In the last section we briefly mentioned the idea of sets of numbers. It is of the utmost importance that we carefully define what constitutes a set.
+
+\begin{theorem}
+A \emph{set} is a well-defined collection of objects. A set can have between 0 and $\inf$ elements contained within it.
+\end{theorem}
+
+\begin{definition}
+Any set which contains 0 elements is called the null set and is denoted by $\emptyset$ \newline
+\end{definition}
+
+Here is a list of many of the commonly used sets: \newline
+$\mathbb{Z}$: The set of all integers (whole numbers) \newline
+$\mathbb{Q}$: The set of all rational numbers (of the form $a/b$ where $a,b \in \mathbb{Z}$)\newline
+$\mathbb{R}$: The set of all numbers which can be expressed in a decimal form\newline
+$\mathbb{C}$: The set of all numbers of the form $a+bi$ where $i= \sqrt[]{-1}$\newline
+
+Note that we can also break up these sets into other sets through modifiers. \newline
+For example: $\mathbb{Z}^+$ is the set of all positive integers ($\forall z \in \mathbb{Z}^+, z > 0$)\newline
+
+There are several ways to define sets. The most fundamental way to define a finite set (one with a countable number of elements) is to simply list out its elements. For example, a finite set S could be defined as follows:
+
+\begin{example}
+\begin{center}
+$S = \{-4,0,3,7\}$
+\end{center}
+\end{example}
+
+An extremely versatile way of building sets is through conditional statements. In this situation, we can build finite or infinite sets of all numbers that have certain qualities. Here is an example of a one finite set and one infinite set built with the conditional method: 
+
+\begin{example}
+\begin{center}
+$A = \{ a \in \mathbb{Z} \mid 0 < a < 10\}$
+\end{center}
+\begin{center}
+$B = \{ b \in \mathbb{Z}^+ \mid b \mod 2 = 0\}$
+\end{center}
+\end{example}
+
+In this case, set A contains the numbers 1 through 9 and set B contains all even positive integers. \newline
+
+There is one final way of defining a set. This is the constructive method which gives a formula and a set to act upon. An example of this which contains all squared numbers would look like so:
+\begin{center}
+$C = \{ n^2 \mid n \in \mathbb{Z}\}$
+\end{center}
+
+\subsection{Relations}
+In much the same way as we can do relations between conditional statements, we can also relate sets to each others.
+There are two fundamental set operations, the union and the intersection.\newline
+
+The union of two sets A and B, denoted by $A \cup B$ forms a set such that $A \cup B = \{x \in A$ or $x \in B\}$.\newline
+
+The intersection of two sets A and B, denoted by $A \cap B$ forms a set such that $A \cap B = \{x \in A$ and $x \in B\}$.\newline
+
+We can string these together to form complex sets like so:
+
+\begin{center}
+$A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+\end{center} 
+
+\subsubsection{Equivalence Relations and Partitions}
+We cannot go any further without explaining the concept of subsets.
+We call A a subset of B, denoted by $A \subseteq B$ if every element of A is also found in B. \newline
+That is to say: if $A \subseteq B$ then $\forall x \in A$, $x \in B$. True equivalence comes when $A \subseteq B$ and $B \subseteq A$ meaning that every element in A is in B and every element of B is in A. \newline
+
+If every element in A exists in B, but there exists some element in B that is not found in A. That is to say: \newline
+
+\begin{definition}
+\begin{center}
+If $A \subseteq B$ and $\exists x \in B$ such that $x \not\in A$ then we call A a proper subset of B and write $A \subset B$
+\end{center}
+\end{definition}
+
+We can also subtract sets from one another. The set formed by the difference of two sets A and B is defined as follows:
+
+\begin{definition}
+\begin{center}
+$A-B = \{ x \mid x \in A$ and $x \not\in B$
+\end{center}
+\end{definition}
+
+Two sets A and B are called disjoint if there exist no elements in common between A and B. That is to say:
+
+\begin{definition}
+\begin{center}
+$A \cap B = \emptyset $
+\end{center}
+\end{definition}
+
+A partition of X is a subset Z of X which has the following properties: \newline
+
+(i)   The subsets in Z are non-empty \newline
+(ii)  The subsets in Z are disjoint \newline
+(iii) The subsets in Z cover all of X.\newline
+
+We can partition sets in any number of ways. For example, we can partition the set of Integers into even and odd numbers.
+
+\subsection{Mathematical Induction}
+Mathematical Induction is one of the most powerful tools in the mathematicians arsenal. It allows one to prove a statement about a base case, prove that this remains true in successive cases, and then imply that it holds for all successive cases.
+
+\subsubsection{Principle of Mathematical Induction}
+The basic principle of mathematical induction can be stated as follows:
+
+\begin{theorem}
+Suppose that P(n) is a statement involving a general positive integer n. Then P(n) is true for all positive integers 1,2,3,... if:\newline
+(i)  P(1) is true, and \newline
+(ii) P(k) $\Rightarrow$ $P(k + 1)$ for all positive inters k.
+\end{theorem}
+
+Step 2 is known as the induction step, and we must be very careful in doing our induction step so as ensure that our proof is valid.
+
+Here is a template to help in the induction process provided by Peter Eckles: \newline
+
+Proof: We use induction on n.\newline
+
+Base case: [Prove the statement P(1)] \newline
+Inductive step: Suppose now as an inductive hypothesis that [P(k) is true] for some positive integer k. Then [deduce that P(k+1) is true]. This proves the induction step. \newline
+Conclusion: Hence, by induction [P(n) is true] for all positive integers n. \newline
+
+Here is an example of mathematical induction proof:
+\begin{example}
+\begin{center}
+Prove that for all positive integers n the number $n^2 + n$ is even \newline
+Proof: We use induction on n. \newline
+Base case: For n = 1, $n^2 + n = 1 + 1 = 2 = 2 \times 1$, an even number, as required. \newline
+Inductive step: Suppose now as an inductive hypothesis that $k^2 + k$ is even for some positive integer k. Then $k^2 + k = 2q$ for some $ q \in \mathbb{Z}$ \newline
+Then $(k+1)^2 + (k+1) = k^2 + 2k + 1 + k + 1 = (k^2 + k) + 2k + 2$\newline
+$(k^2 + k) + 2k + 2 = 2q + 2k + 2 = 2(q + k + 1) = 2p$, where p is the integer $q + k + 1$, and so $(k+1)^2 + (k+1)$ is even as was required.\newline
+Conclusion: Hence, by induction, $n^2+n$ is even for all positive integers n.
+\end{center}
+\end{example}
+
+\subsection{Functions}
+Functions at their most basic level, a function is a machine which takes something as input and outputs something else. For our purpose, a function is a process that maps a domain X onto a codomain Y. If a function maps a domain X onto Y, we will write $f:X \rightarrow Y $ \newline
+Given $x \in X$ and $f(x) \in Y$, we may also write $x \mapsto f(x)$ with f(x) being called the image of x under f, X is called the domain, and Y is called the codomain.\newline
+
+There exist two fundamental properties that a function may have which are of interest to us.\newline
+
+The first property concerns whether a function is 1 to 1. This means no two values in the domain map to the same value in the codomain. That is to say that given $x_1 \neq x_2$, we can be assured that $f(x_1) \neq f(x_2)$\newline
+This property is also known as an injection.\newline
+
+The second property that a function may have is whether it is onto, in relation to a domain X and Codomain Y. To put it in another way $$\forall y \in Y, \exists x \in X, y=f(x)$$
+A function that has this property is known as a surjection. \newline
+
+A function that is both an injection and a surjection is known as a bijection. 
+

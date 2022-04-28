@@ -1,0 +1,127 @@
+
+\section{Differential Equations} %Each summary that you do in this class will be a section.  Use \subsection and \subsubsection commands to create sections within the summary.
+
+Differential Equations are a tremendously powerful tool in the mathematicians arsenal. In particular, the utility of differential equations in modelling systems is almost boundless.
+The information for the following summary of Differential Equations is taken from~\cite{DiffEq}. Please note that the examples presented in the following summary section are also provided in the text as I no longer have notes from a Differential Equations course.
+
+\subsection{Ordinary Differential Equations}
+
+To put it simply, a differential equation is one in which derivatives are used as variables in an equation. In the simplest case, we have what is called an \emph{ordinary differential equation}.
+
+\begin{definition}
+An \emph{ordinary differential equation} is an equation relating an unknown function of one variable to one or more functions of its derivatives.
+\end{definition}
+
+Here are some examples of ordinary differential equations with $x$ as our unknown as a function of $t$. That is to say $x = x(t).$
+
+\begin{example}
+$$\frac{dx}{dt}=t^7\cos x$$
+$$\frac{d^2 x}{dt^2} = x \frac{dx}{dt}$$
+$$\frac{d^4 x}{dt^4} = -5 x^5$$
+\end{example}
+
+Each differential equation in this example is of a different \emph{order}.
+
+\begin{definition}
+The \emph{order} of a differential equation is the order of the highest derivative of the unknown function (dependent variable) that appears in the equation.
+\end{definition}
+
+In our example set of differential equations, the orders are first, second, and fourth order respectively.\newline
+
+Very often, our dependent variable is a function of time, denoted as $t.$ Applications for this type of equation include
+
+\begin{enumerate}
+\item Population Dynamics
+\item Mixture and Flow Problems
+\item Electronic Circuits
+\item Mechanical Vibrations and Systems
+\end{enumerate}
+
+We will now show an example problem regarding population dynamics, which should give us a good idea of the type of problems differential equations hopes to answer.
+
+\begin{example} Population Dynamics Over Time\newline
+
+Assume that the population of Washington, DC, grows due to births and deaths at the rate of $2\%$ per year and there is a net migration into the city of $15000$ people per year. Write a mathematical equation that describes the situation.\newline
+
+SOLUTION. We let
+\begin{center}
+$x(t)=$ population as a function of time $t.$
+\end{center}
+From Calculus,
+\begin{center}
+$\frac{dx}{dt} =$ rate of change of the population $x$
+\end{center}
+In our example, $2\%$ growth means $2\%$ of the population $x(t).$ Thus, the population of Washington, DC satisfies the following $$\frac{dx}{dt} = 0.02x + 15000.$$
+\end{example}
+
+Physical laws often lead to differential equations which are quite handy. In our next example, we will look at the applications of differential equations to free-falling bodies in open air.
+
+\begin{example} The Joys of Free-fall \newline
+
+Newton's Law says $$F=ma$$ where m is constant mass, and a is acceleration, the second derivative of position. This allows us to rewrite Newton's Law as $$m \frac{d^2x}{dt^2} = F.$$ If the forces acting on a particular body going into free-fall are gravity (which we define as $-mg$ and the force of air resistance, which we know to be proportional to velocity ($\frac{dx}{dt}$, then our position at any given time satisfies the following second order differential equation
+$$m\frac{d^2x}{dt^2} = -mg - c\frac{dx}{dt}$$. This is a bit underwhelming as a result. However, suppose we are tied to a spring which exerts an additional force proportional to our position that satisfies Hooke's Law. In this case, we will end up with the following, more interesting second order differential equation $$m\frac{d^2x}{dt^2} = -mg -kx -c\frac{dx}{dt}$$
+\end{example}
+
+Many of the physical laws concerning electricity give rise to differential equations as well. As such, we can model the behaviour of circuits with differential equations quite handily. For example, a simple RLC circuit can be modelled by the following second-order differential equation:
+$$L\frac{d^2i}{dt^2}+R\frac{di}{dt}+\frac{1}{C}i = f(t)$$
+
+But if we derive or are given a possible solution to a differential equation, how can we verify that what we have is actually a solution?
+
+\begin{example} Showing that a Function is a Solution\newline
+Verify that $x=3e^{t^2}$ is a solution of the following first-order differential equation
+$$\frac{dx}{dt} = 2tx$$
+We substitute $x=3e^{t^2}$ in both the left and right hand sides of our equation. this gives us $$\frac{d}{dt}(3e^{t^2}) = 6te^{t^2}.$$
+Simplifying the left hand side, we end up with $$6te^{t^2}=6te^{t^2}.$$ This holds for all $t$, thus we can see that  $x=3e^{t^2}$  is a solution for our differential equation.
+
+\end{example}
+
+\subsubsection{Initial Value Problems}
+
+The simplest first-order differential equation possible arises if the function $f(x,t)$ in $\frac{dx}{dt} = f(x,t)$ does not depend on the unknown solution giving us the differential equation $$\frac{dx}{dt} = f(t).$$ Luckily, the solution to such a system is quite apparent. We can find a solution by way of integration.\newline
+
+However, we can see that integrating like this will give us an arbitrary constant. From this, we can see that differential equations can have an infinite number of possible solutions. A solution like this is called the \emph{general solution} of a differential equation because it is a sort of formula which gives all possible solutions.
+
+ In the following example, we will solve a differential equation this way, and toss in the wrinkle of initial values to find a definite solution.
+
+\begin{example} Introducing Initial Values\newline
+
+Consider the following simple differential equation,
+$$\frac{dx}{dt}	= t^2.$$
+By integration, we obtain
+$$x=\frac{1}{3}t^3 + c$$
+where c is an arbitrary constant. Without further information, this would be where the problem would end.\newline
+
+However, suppose that we are given the information $x=7$ at $t=2,$ that is to say, $x(2)=7.$ Applying this information to our general solution we get $$7 = \frac{8}{3} + c.$$ We can then determine that $c=\frac{13}{3}.$ Now we have a unique solution to our differential equation which satisfies our initial condition: $$x=\frac{1}{3}t^3+\frac{13}{3}.$$
+\end{example}
+
+If our equation is packaged to allow this kind of simple integration, then everything is good. However, suppose that we have a situation where using an indefinite integral is not appropriate. In this case, we can use a definite integral. If both sides of the differential equation $\frac{dx}{dt}=f(t)$ are integrated with respect to $t$ from $t_0$ to $t,$ this gives us $$\int\limits_0^1 \frac{dx}{d\bar{t}}d\bar{t} = \int\limits_0^1 f(\bar{t})d\bar{t}.$$ Note that we introduced a dummy variable and are no longer in t. By working out both sides and cancelling, this gives us $$x(t) = x(t_0) + \int\limits_{t_0}^t f(t)dt.$$ Now lets look at an example of this operation in action.
+
+\begin{example} Using Indefinite Integrals\newline
+
+Solve the differential equation 
+$$\frac{dx}{dt} = e^{-t^2}.$$
+Subject to the initial condition $x(3)=7.$\newline
+
+The function $e^{-t^2}$ does note have an explicit antiderivative. Thus, we will solve using the definite integration from $t_0=3$ to $t=7.$ Using our previously found solution, we find that the solution to this initial value problem is $$x=7+\int\limits_3^t e^{-t^2}d\bar{t}.$$
+\end{example}
+
+We will end our discussion of differential equations with a very practical example from the area of mechanics.
+
+\begin{example} Brake or Break\newline
+
+There is a car going 76 meters per second down a road when the driver sees a deer down the road. The brakes are applied hard at $t=2.$ Due to inefficiencies in the braking system, acceleration is known to conform to $a=-12t^2$. How far does the car travel after the breaks are applied?\newline
+
+Our differential equation is $$\frac{d^2x}{dt^2}=-12t^2$$
+By integrating like we did in an earlier example we obtain
+$$\frac{dx}{dt}=-4t^3 + c_1$$
+Integrating again
+$$x=-t^4 + c_1 t + c_2$$
+Now we go back and apply our initial conditions to find a definite solution. We know that $x=0$ and $\frac{dx}{dt}=76$ at time $t=2.$\newline
+
+By applying our velocity constraint we get $$76 = -4t^3 +c_1$$
+showing us that $c_1 = 108.$ After this, we apply our position constraint in order to see $$0=-2^4 + 108t+c_2.$$ From this we get that $c_2 = -200.$\newline
+
+We now solve the following equation $$\frac{dx}{dt} =-4t^3 +108 = 0$$ to find that our stopping time is $t=3$ Substituting $t=3$ this back into our equation $x=-t^4 + 108t -200$ giving us a stopping distance of 43 meters.
+\end{example}
+
+

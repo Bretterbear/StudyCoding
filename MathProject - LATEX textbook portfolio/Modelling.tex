@@ -1,0 +1,184 @@
+\section{Mathematical Modeling}%Leave this line as is.
+%NOTE: The subsections and subsubsections below are for idea purposes only.  DELETE subsections/subsubsections below and only put subsections/subsubsections in your summary that you are developing.  You are advised to pick one topic of your choice that was covered in your math modeling course to develop for the summary.  You should incorporate examples of your work in the class.
+
+Mathematics is a precise, idealistic and pristine world. By contrast, the physical universe is a thing of complexity and relative randomness. In mathematical modelling we work to approximate real world phenomena with mathematical models. The advantages of this approach for projection, prediction, and analysis are enormous.
+
+Please note that unless otherwise stated, the information in following summery of mathematical modelling are gleaned from~\cite{NumAnaly}. Further note that the examples are drawn from the text as well, as my own personal notes have been lost. 
+
+%\subsection{Discrete Modeling}
+
+%\subsubsection{Modeling with Difference Equation}
+
+%\subsubsection{Modeling using Geometric Similarity}
+
+
+%\subsection{Continuous Modeling with First Order Differential Equations - (Linear, Exact, Autonomous, Numerical)}
+
+
+
+%\subsection{Fitting Model to Data}
+
+%\subsubsection{Chebyshev Approximation Criterion}
+
+%\subsubsection{Least Squares Method}
+
+
+
+\subsection{Simplex Method}
+The simplex method is a linear programming method developed by George Dantzig which incorporates test of both optimality and feasibility in seeking out the optimal solution to a linear program, provided a solution exists.\newline
+
+
+\emph{Steps in the Simplex Method}
+\begin{enumerate}
+\item Tableau Format: Place the linear program into Tableau Format, which will be explained after this list.
+\item Initial Extreme Point: The Simplex Method begins with a known extreme point, usually the origin $(0,0)$
+\item Optimality Test: Determine if an adjacent intersection point improves the value of the object function. If not, the current extreme point is optimal. If an improvement is possible, the optimality test determines which variable currently in the independent set (having value 0) should enter the dependent set and become non-zero.
+\item Feasibility Test: To find a new intersection point, one of the variables in the dependent set must exit to allow the entering variable from step 3 to become dependent (only one variable may be independent at a time). The feasibility test determines which variable to choose for exiting ensuring feasibility.
+\item Pivot: Form a new equivalent system of equations by eliminating the new dependent variable from the equations that do not contain the variable from step 4. Then set the new independent variables to 0 and the new system to find the values of the new dependent variables, thereby determining an intersection point.
+\item Repeat: Repeat steps 3-5 until an optimal extreme point is found.
+\end{enumerate}
+
+This wall of text, while helpful as a guide does little to enlighten us on the method's use. In order to shed some more light on the simplex method, lets examine an example from the text.
+
+\begin{example}
+Maximize the function $$25x_1 + 30x_2$$
+
+subject to
+$$20x_1 + 30x_2 \leq 690$$
+$$5x_1 + 4x_2 \leq 120$$
+$$x_1 ,x_2 \geq 0$$ 
+\textbf{Step 1: Tableau Form}\newline
+First we must adjoin a new constraint to ensure that any solution improves on our best found solution thus far. As a result, we will add in the restraint $$25x_1 + 30x_2 \geq 0$$ Since all of our constraints must be $\leq$ inequalities for the method to work, we will multiply by $-1$ in order to get the following complete constraint set:
+
+$$20x_1 + 30x_2 \leq 690$$
+$$5x_1 + 4x_2 \leq 120$$
+$$-25x_1 - 30x_2 \leq 0$$
+
+It is worth noting that the Simplex Method assumes that all variables will only assume non-negative values, so the constraint $x_1, x_2 \geq 0$ does not need to be repeated from this point forwards.\newline
+
+Next we need to turn the inequalities of our constraints into equalities by the addition of a new non-negative variable to each of our constraints. This variable is called a \emph{slack variable} because it is a measure of how much slack there is in our values; by this we mean, how close our get us to the bounds of our constraints. In simple, ideal cases studied in classrooms, we will often see the slack variables taking on a values of 0 in the end, as we end up with solutions that are at the very edges of our constraints. In any case, after adding in our slack variables, we end up with the following \emph{augmented constraint set}
+
+$$20x_1 + 30x_2 + y_1 = 690$$
+$$5x_1 + 4x_2 + y_2 = 120$$
+$$-25x_1 - 30x_2 + z = 0$$
+
+If you look closely, you'll realize that $z$ is in fact the value of the objective function we are looking to optimize. \newline
+
+\textbf{Step 2: Initial Extreme Point}\newline
+Because there are two decision variables, all possible intersection points lie in the $x_1,x_2$ plane and can be determined by setting two of the variables $\{ x_1, x_2, y_1, y_2\}$ to zero. (The variable z is always a dependent variable because it represents the value of the objective function at the extreme point in question.) The origin is a feasible extreme point and corresponds to the extreme point characterized by $x_1 = x_2 = 0$, $y_1 = 690$, and $y_2 = 120.$ Thus, $x_1$ and $x_2$ are independent values whose values are set to 0 and $y_1,$  $y_2,$ and $z$ are dependent variables whose values are then determined. As we previously mentioned, z conveniently records the current value of the objective function at the extreme points of the convex set in the $x_1,x_2$ plane as we compute them by elimination.\newline
+
+\textbf{Step 3: Optimality Test}\newline
+In the preceding format, a negative coefficient in the last (or objective function) equation indicates that the corresponding variable could improve the current objective function value. Thus, the coefficients $-25$ and $-30$ indicate that either $x_1$ or $x_2$ could enter and improve the current objective function value of $z=0$ (The current constraint corresponds to $z = 25x_1 + 30x_2 \geq 0$ with $x_1$ and $x_2$ currently independent and 0.) When more than one candidate exists for the entering variable, a rule of thumb for selecting the variable to enter the dependent set is to select that variable which has the largest (in absolute value) negative coefficient in the objective function row. If no negative coefficients exists, then the current solution is optimal. In the case at hand, we choose $x_2$ as the new entering variable. (The procedure is inexact at this stage because we do not know what values the entering variable can assume.) \newline
+
+\textbf{Step 4: Feasibility Test}\newline
+The entering variable $x_2$ (in our example) must replace either $y_1$ or $y_2$ as a dependent variable (because z always remains the third dependent variable). To determine which of these variables is to exit the dependent set, first divide the right hand side values 690 and 120 (associated with the original constraint inequalities) by the components for the entering variable in each inequality (30 and 4, respectively, in our example) to obtain the ratios $\frac{690}{30} = 23$ and $\frac{120}{4} = 30.$ From the subset of the ratios that are positive (both in this case), the variable corresponding to the minimum ratio is chosen for replacement ($y_1$ corresponding to 23 in this case). The ratios represent the value the entering variable would obtain if the corresponding exiting variable were assigned the value 0. Thus, only positive values are considered and the smallest positive value is chosen so as not to drive an variable negative. For instance, if $y_2$ were chosen as the exiting variable and assigned the value 0, then $x_2$ would assume the value 30 as the new dependent variable. However, then $y_1$ would be negative, indicating that the intersection point $(0,30)$ does not satisfy the first constraint. The \textbf{minimum positive ratio rule} illustrated previously obviates the enumeration of any infeasible intersection points. In the case at hand, the dependent variable corresponding to the smallest ratio, 23 is $y_1$, as such it becomes the exiting variable. Thus $x_2,$ $y_2,$ and $z$ form the new set of dependent variables and $x_1$ and $y_1$ form the new set of independent variables.\newline
+
+\textbf{Step 5: Pivot}\newline
+Next we derive a new (equivalent) system of equations by eliminating the entering variable $x_2$ in all the equations of the previous system that do not contain the exiting variable $y_1.$ After the elimination, we then find the values of the dependent variables $x_2,$ $y_2,$ and $z$ when the independent variables $x_1$ and $y_1$ are assigned the value 0 in the new system of of equations. This is called the \textbf{pivoting procedure.} The values of $x_1$ and $x_2$ give the new extreme point $(x_1,x_2)$ and $z$ is the new and improved value of the objective function at that point. \newline
+
+\textbf{Step 6: Repeat until satisfied}\newline
+After performing the pivot, the optimality test is applied again to determine if another candidate entering variable exists. If so, we choose an appropriate one and apply the feasibility test again to choose an exiting variable. Then the pivoting procedure is performed again. The process is repeated until no variable has a negative coefficient in the objective function row. At this point we have found our optimal extreme point.
+
+\end{example}
+
+Now that we have the idea of the Simplex method thoroughly fleshed out in relation to our problem. Let us revisit the problem using tableaus in order to better see the operations taking place.
+
+\begin{example} Tableau Problem:\newline
+
+\textbf{Tableau 0 (Original Tableau)}\newline
+
+\begin{center}
+\begin{tabular}{|c c c c c | c|}
+\hline
+$x_1$ & $x_2$ & $y_1$ & $y_2$ & $z$ & RHS \\ \hline
+20 & 30 & 1 & 0 & 0 & $690 (= y_1)$ \\
+5 & 4 & 0 & 1 & 0 & $120 (=y_2)$ \\ \hline
+-25 & -30 & 0 & 0 & 1 & $0(=z)$ \\ \hline
+\end{tabular}\newline
+\end{center}
+
+Dependent variables: $\{y_1,y_2,z\}$ \newline
+Independent variables: $x_1=x_2=0$\newline
+Extreme Point: $(x_1,x_2) = (0,0)$\newline
+Value of Objective Function: $z=0$\newline
+
+\textbf{Optimality Test:} The entering variable is $x_2$ (corresponding to -30 in the last row).\newline
+
+\textbf{Feasibility Test:}	Compute the ratios for the RHS to determine minimum positive ratio\newline
+
+\begin{center}
+\begin{tabular}{| c c c c c | c | c |}
+\hline
+$x_1$ & $x_2$ & $y_1$ & $y_2$ & $z$ & RHS & Ratio \\ \hline
+20 & 30 & 1 & 0 & 0 & $690 (= y_1)$ & $23 (=690/30)$ \\
+5 & 4 & 0 & 1 & 0 & $120 (=y_2)$ & $30 (=120/4)$\\ \hline
+-25 & -30 & 0 & 0 & 1 & $0(=z)$ & $*$\\ \hline
+\end{tabular}\newline
+\end{center}
+
+So we choose $y_1$ corresponding to the minimum positive ratio 23 as the exiting variable.\newline
+
+\textbf{Pivot:} Divide the row containing the exiting variable by the coefficient of the entering variable in that row giving a coefficient of 1 for the entering variable in this row. Then eliminate the entering variable $x_2$ from the remaining rows (which do not contain the exiting variable $y_1$ and have a 0 coefficient for it.) The results are summarized in the next tableau.\newline
+
+
+\textbf{Tableau 1}\newline
+
+\begin{center}
+\begin{tabular}{|c c c c c | c|}
+\hline
+$x_1$ & $x_2$ & $y_1$ & $y_2$ & $z$ & RHS \\ \hline
+.66667 & 1 & .03333 & 0 & 0 & $23 (= x_2)$ \\
+2.3333 & 0 & -.1333 & 1 & 0 & $28 (=y_2)$ \\ \hline
+-5 & 0 & 1 & 0 & 1 & $690(=z)$ \\ \hline
+\end{tabular}\newline
+\end{center}
+
+Dependent variables: $\{x_2,y_2,z\}$ \newline
+Independent variables: $x_1=y_1=0$\newline
+Extreme Point: $(x_1,x_2) = (0,23)$\newline
+Value of Objective Function: $z=690$\newline
+
+The pivot determines that the new dependent variables have the values $x_2 = 23,$ $y_2 = 28,$ and $z=690$\newline
+
+\textbf{Optimality Test:} The entering variable is $x_1$ (corresponding to -5 in the last row).\newline
+
+\textbf{Feasibility Test:}	Compute the ratios for the RHS to determine minimum positive ratio\newline
+
+\begin{center}
+\begin{tabular}{| c c c c c | c | c |}
+\hline
+$x_1$ & $x_2$ & $y_1$ & $y_2$ & $z$ & RHS & Ratio \\ \hline
+.66667 & 1 & .03333 & 0 & 0 & $23$ & $23 (=34.5/.66667)$ \\
+2.33333 & 0 & -.13333 & 1 & 0 & $28$ & $12 (=28/2.33333)$\\ \hline
+-5 & 0 & 1 & 0 & 1 & $690$ & $*$\\ \hline
+\end{tabular}\newline
+\end{center}
+
+Choose $y_2$ as the exiting variable because it corresponds to the minimum positive ratio 12. \newline
+
+\textbf{Pivot: } Divide the row containing the exiting variable (the second row in this case) by the coefficient of the entering variable in that row (the coefficient $x_1$ in this case) giving a coefficient of 1 for the entering variable in this row. Then eliminate the entering variable from the remaining rows (which do not contain the exiting variable and have a 0 coefficient for it). The results are summarized in our last tableau. \newline
+
+
+\textbf{Tableau 2}\newline
+\begin{center}
+\begin{tabular}{|c c c c c | c|}
+\hline
+$x_1$ & $x_2$ & $y_1$ & $y_2$ & $z$ & RHS \\ \hline
+0 & 1 & .071429 & -.28571 & 0 & $15 (= x_2)$ \\
+1 & 0 & -.057143 & .42857 & 0 & $12 (=x_1)$ \\ \hline
+0 & 0 & .714286 & 2.14286 & 1 & $750(=z)$ \\ \hline
+\end{tabular}\newline
+\end{center}
+
+Dependent variables: $\{x_2,x_1,z\}$ \newline
+Independent variables: $y_1=y_2=0$\newline
+Extreme Point: $(x_1,x_2) = (12,15)$\newline
+Value of Objective Function: $z=750$\newline
+
+\textbf{Optimality Test:} There are no negative coefficients in the bottom row, thus $x_1 = 12$ and $x_2 = 15$ gives the optimal solution of $z=750$ for the objective function.
+
+\end{example}
+
+Please note that while there were 6 intersection points in our constraints, we needed only to enumerate two of them to find our optimal solution. This is a big part of the draw of the simplex method. It can reduce the number of computations required to find the optimal extreme point of a linear program. This comes in extremely handy when doing very large linear programs with many possible intersections.
+
+

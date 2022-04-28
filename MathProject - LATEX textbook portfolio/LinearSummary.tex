@@ -1,0 +1,220 @@
+
+\section{Linear Algebra}  %The subsections/subsubsections below will give you some ideas of what to cover or how to organize your summary.  However, these were the subsections/subsubsections used for a 14 page summary.  If you are writing a short summary, you will not be able to use all of these and will need to decide which ones to omit.  Include examples that you actually worked out; such as old homework, quiz, project, or test problems.  Cite properly using LaTeX code.
+
+Now we will move on to the field of Linear Algebra. Linear Algebra is at its most basic, a suite of tools, techniques and methodologies associated with large systems of linear equations.\newline
+
+Please note that unless otherwise stated, the information in the following summary of Linear Algebra is drawn from Schaum's Outline of Linear Algebra~\cite{Linear}.
+\subsection{Systems of Linear Equations}
+The most basic topic of discussion in Linear Algebra is the idea of a System of Linear Equations.
+Linear equations are at their most simple, equations of the form $ax=b$ where a and b are constants, and x is a variable. This is a trivial problem to solve, but supposing we have more than one variable. Generally, our linear equations will take the form: $$a_{1}x_{1}+a_{2}x_{2}+...+a_{n}x_{n} = b$$
+Given this and this alone, it would be impossible to come upon a singular solution. However, in Linear Algebra, we see systems of these linear equations and use them together to come up with a solution. So for 3 variables, we might have something like this:
+
+\begin{center}
+$a_{1,1}x_{1}+a_{1,2}x_{2}+a_{1,3}x_{3} = b_{1}$
+
+$a_{2,1}x_{1}+a_{2,2}x_{2}+a_{2,3}x_{3} = b_{2}$
+
+$a_{3,1}x_{1}+a_{3,2}x_{2}+a_{3,3}x_{3} = b_{3}$
+\end{center}
+
+\begin{theorem} It is worth noting that a system of n equations in n unknowns is more likely to have a specific solution.
+\end{theorem}
+
+If we were to have to write this whole thing out every single time we wanted to do something, it would get extremely tedious. As a result, we've developed a beautiful piece of shorthand: the matrix.
+
+A matrix is an extremely powerful structure which contains the information of a system of equations. The matrix of our previous example looks like so:
+$$
+\begin{bmatrix}
+a_{1,1}&a_{1,2}&a_{1,3}\\
+a_{2,1}&a_{2,2}&a_{2,3}\\ 
+a_{3,1}&a_{3,2}&a_{3,3}
+\end{bmatrix}
+$$
+This would be a simple \emph{coefficient matrix} containing all the coefficients of the variables in our sample problem. There also exists another type of matrix commonly in use called the augmented matrix. This matrix is "augmented" by having the solution as a part of the matrix as well. It would look something like this
+
+$$
+\begin{bmatrix}
+a_{1,1}&a_{1,2}&a_{1,3}&b_{1}\\
+a_{2,1}&a_{2,2}&a_{2,3}&b_{2}\\ 
+a_{3,1}&a_{3,2}&a_{3,3}&b_{3}
+\end{bmatrix}
+$$
+
+This gives us a very simple idea of what matrices are. In essence, they are just another, more concise way of demonstrating the relationships in a system of equations. Now that we have covered this, we can move on to why they're so powerful.
+
+\subsection{Echelon Forms}
+What makes matrices so useful is the fact that they can be easily and intuitively manipulated. We'll get into the exact details of the rules of matrix operations in a bit. But for now, all we need to know is that there exist certain prescribed rules that keep the system identical from start to finish.
+
+\begin{theorem}
+Two matrices are identical if they have the same solution set
+\end{theorem}
+
+To say that a matrix is in eschelon form is to say that it follows certain rules regarding its structure. There are 2 fundamental types of Eschelon form that we will be concerned with in this class: Row Eschelon form (REF) and Reduced Row Eschelon Form (RREF).
+
+Firstly, Row Eschelon form is a matrix where all entries below the leading non-zero entries are zero. This can be a bit difficult to visualize, so here is how it looks in our example problem.
+
+$$
+\begin{bmatrix}
+1&a_{1,2}&a_{1,3}&b_{1}\\
+0&1&a_{2,3}&b_{2}\\ 
+0&0&1&b_{3}
+\end{bmatrix}
+$$
+
+As you can see, this makes it easy to solve for the last variable (since these correspond to those original linear equations) and subsitute backwards to solve the system. However, there exists an identical matrix which has the solution even more plainly displayed.
+
+The Reduced Row Eschelon Form of a matrix is where the leading entry of each row is a 1 and all other entries in the column are zero. In terms of our example, it would look like this:
+
+$$
+\begin{bmatrix}
+1&0&0&b_{1}\\
+0&1&0&b_{2}\\ 
+0&0&1&b_{3}
+\end{bmatrix}
+$$
+
+If we take a look at this, we see quite plainly that $b_{3}$ contains the solution of $x_{3}$, and likewise that $b_{2}$ contains the solution of $x_{2}$ and lastly that $b_{1}$ contains the solution of $x_{1}$. As you can imagine, this simplicity gives us quite a lot of incentive to find the Reduced Row Eschelon Form of a Matrix. As a result, we have a fair number of methods to get us the Reduced Row Eschelon Form of a Matrix.
+
+\subsection{Matrix Operations and Inverse Matrices}
+
+Here we will cover the basic algebra of matrices.
+
+\subsubsection{Matrix Addition and Scalar Multiplication}
+
+We can add two matrices together, provided they have the same dimensions. 
+It is done by adding up the corresponding coefficients in each matrix.
+For example, suppose we have a matrix A (our example matrix) and a matrix C, defined as
+
+$$
+\begin{bmatrix}
+c_{1,1}&c_{1,2}&c_{1,3}&d_{1}\\
+c_{2,1}&c_{2,2}&c_{2,3}&d_{2}\\ 
+c_{3,1}&c_{3,2}&c_{3,3}&d_{3}
+\end{bmatrix}
+$$
+
+In this case, the result of $[A] + [C]$ would be :
+
+$$
+\begin{bmatrix}
+a_{1,1}+c_{1,1}&a_{1,2}+c_{1,2}&a_{1,3}+c_{1,3}&b_{1}+d_{1}\\
+a_{2,1}+c_{2,1}&a_{2,2}+c_{2,2}&a_{2,3}+c_{2,3}&b_{2}+d_{2}\\ 
+a_{3,1}+c_{3,1}&a_{3,2}+c_{3,2}&a_{3,3}+c_{3,3}&b_{3}+d_{3}
+\end{bmatrix}
+$$
+
+Please note that we can also simply multiply a matrix by a scalar c.
+In this case, we would simply multiply each entry in the matrix by our scalar. Note that multiplying a matrix by a scalar leaves you with an identical matrix of a different magnitude.
+For example, if we multiplied our example matrix A by c, we would get
+
+$$
+\begin{bmatrix}
+ca_{1,1}&ca_{1,2}&ca_{1,3}&cb_{1}\\
+ca_{2,1}&ca_{2,2}&ca_{2,3}&cb_{2}\\ 
+ca_{3,1}&ca_{3,2}&ca_{3,3}&cb_{3}
+\end{bmatrix}
+$$
+
+
+\subsubsection{Matrix Multiplication} 
+
+We can also multiply two matrices together by multiplying the rows of one matrix by the columns of the second. In our example matrices A and C, AC would be
+
+$$
+\begin{bmatrix}
+a_{11}c_{11}+a_{21}c_{12}+a_{31}c_{13}&a_{21}c_{12}+a_{22}c_{22}+a_{32}c_{23}&a_{31}c_{13}+a_{23}c_{32}+a_{33}c_{33}\\
+.&.&.\\
+.&.&.
+\end{bmatrix}
+$$
+
+Obviously, this is a step where errors can creep in due to the sheer number of operations that need to be done. As such, it's important to double check your work when doing matrix multiplication. 
+
+It's interesting to note that many of the early uses of computers were to solve very large linear systems because doing lots of small calculations quickly is precisely where computers to excel.
+
+\subsubsection{Transpose of a Matrix}
+
+The transpose of a matrix A, denoted by $[A]^{T}$ is the matrix formed by swapping the rowspace and column space of the matrix. In our example matrix of
+ 
+$$
+\begin{bmatrix}
+a_{1,1}&a_{1,2}&a_{1,3}\\
+a_{2,1}&a_{2,2}&a_{2,3}\\ 
+a_{3,1}&a_{3,2}&a_{3,3}
+\end{bmatrix}
+$$
+
+The transpose would be:
+$$
+\begin{bmatrix}
+a_{1,1}&a_{2,1}&a_{3,1}\\
+a_{1,2}&a_{2,2}&a_{3,2}\\ 
+a_{1,3}&a_{2,3}&a_{3,3}
+\end{bmatrix}
+$$
+
+Note that the entries along the diagonal are not affected by transposition.
+
+\subsubsection{Inverse Matrix}
+
+An inverse matrix of a matrix A denoted by $[A]^{-1}$. A matrix's inverse "undoes it".
+That is to say, $(A)(A^{-1}) = I$ where I is the identity matrix. The identity matrix is the multiplicative identity of the matrix world. It is a matrix with 1's along the diagonal and 0's everywhere else. In a $3 \times 3$ case, the identity matrix would be:
+
+$$
+\begin{bmatrix}
+1&0&0\\
+0&1&0\\ 
+0&0&1
+\end{bmatrix}
+$$
+
+Note that $AI = A$.
+
+\subsection{Determinants and Cramer’s Rule}
+In this section we'll be exploring determinants and a very nifty use for them.
+ 
+\subsubsection{Determinants}
+Every n by n (square) has a unique scalar called a determinant denoted by det(A).
+The determinant of a matrix gives us some clue about certain properties of the matrix such as diagonalizability or whether it is solvable.
+
+
+In the trivial case of a $1 \times 1$ matrix, the determinant is just the single entry in the matrix.
+
+In a $2 \times 2$ matrix of the form
+
+$$
+\begin{bmatrix}
+a&b\\
+c&d
+\end{bmatrix}
+$$
+
+has a determinant value $det(A) = ad - bc$.
+
+For a $3 \times 3$ matrix A, defined as:
+
+$$
+\begin{bmatrix}
+a_{11}&a_{12}&a_{13}\\
+a_{21}&a_{22}&a_{23}\\ 
+a_{31}&a_{32}&a_{33}
+\end{bmatrix}
+$$
+
+has a determinant value $det(A) = a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{13}a_{22}a_{31}-a_{12}a_{21}a_{33}-a_{11}a_{23}a_{32}$.
+
+For larger matrices, we find the determinant by breaking the matrix into smaller submatrices and finding the sum of those smaller determinants.
+
+\subsubsection{Cramer's Rule}
+Cramer's rule is a technique to find the solution of a linear system Ax = b.
+It is defined as follows:
+
+\begin{theorem}
+For a system Ax = b, provided det(A) does not equal 0, the solution is given by 
+$$x_{1} = \frac{N_{1}}{det(A)}$$
+$$x_{2} = \frac{N_{2}}{det(A)}$$
+$$...$$
+$$x_{n} = \frac{N_{n}}{det(A)}$$
+\end{theorem}
+
+In this case, the "N" values are given as the determinant of that submatrix formed by the exclusion of that row and column.

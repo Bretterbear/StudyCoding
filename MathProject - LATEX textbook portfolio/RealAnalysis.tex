@@ -1,0 +1,348 @@
+\section{Real Analysis}%Leave this line as is.
+%NOTE: The subsections and subsubsections below are for idea purposes only.  DELETE subsections/subsubsections below and only put subsections/subsubsections in your summary that you are developing.  You are advised to pick one topic of your choice that was covered in your real analysis course to develop for the summary.  You should try to incorporate examples of your work.
+In the collegiate math student's career, Real Analysis is often the course where a student "hits the wall". It is a daunting subject which gives us many indispensable tools for further study and proof.\newline
+
+ The following summary of Real Analysis draws its information from\cite{IntroAnalysis} unless otherwise stated. Its examples are also drawn from the same source.
+
+\subsection{The Real Number System}
+
+The Real Number System is extremely inclusive and contains meaningful subsets within it. We follow with a brief overview of some of the most familiar.\newline
+\begin{itemize}
+\item $\mathbb{N}$ the set of natural numbers, the numbers used for counting, defined as $$\mathbb{N} :=\{1,2,3...\}$$
+\item $\mathbb{Z}$ the set of integers, or whole numbers, defined as $$\mathbb{Z} :=\{...-2,-1,0,1,2,...\}$$ For the curious folks, the Z symbol comes from the German \emph{Zahlen} which means numbers.
+\item $\mathbb{Q}$ the set of rational numbers, or fractions, defined as $$\mathbb{Q} := \{\frac{m}{n}\in \mathbb{Z}, n\neq 0\}$$
+\item $\mathbb{Q}^c$ the set of irrational numbers, or numbers which can't be expressed as fractions, defined as $$\mathbb{Q}^c := \mathbb{R}-\mathbb{Q}.$$
+\end{itemize}
+It is worth noting that each of these sets (save for the irrationals) are proper subsets of the preceding set. By this we mean that $$\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}.$$
+
+\subsubsection{Ordered Field Axioms}
+
+We now see how expansive the field of real numbers are and what a big task we have before ourselves. Luckily, we can define our system with two sets of Axioms which make our lives much simpler.
+
+\begin{definition} \textbf{Field Axioms} \newline
+There are functions $+$ and $*$ defined on $\mathbb{R}^2 := \mathbb{R} \times \mathbb{R}$, which satisfies the following properties for every $a,b,c \in \mathbb{R}$
+\begin{itemize}
+\item \textbf{Closure Properties:} $a+b$ and $a*b$ belong to $\mathbb{R}.$
+\item \textbf{Associative Properties:} $a+(b+c) = (a+b)+c$ and $a*(b*c)=(a*b)*c.$
+\item \textbf{Commutative Properties:} $a+b=b+a$ and $a*b=b*a.$
+\item \textbf{Distributive Law:} $a*(b+c) = a*b+a*c.$
+\item \textbf{Existence of the Additive Identity:} There is a unique element $0 \in \mathbb{R}$ such that $0+a=a$ for all $a \in \mathbb{R}.$
+\item \textbf{Existence of the Multiplicative Identity:} There is a unique element $1 \in \mathbb{R}$ such that $1 \neq 0$ and $1*a = a$ for all $a \in \mathbb{R}.$
+\item \textbf{Existence of Additive Inverses:} For every $x \in \mathbb{R}$ there is a unique element $-x \in \mathbb{R}$ such that $$ x + (-x) = 0.$$
+\item \textbf{Existence of Multiplicative Inverses:} For every $x \in \mathbb{R}$ where $x \neq 0$ there is a unique element $x^{-1} \in \mathbb{R}$ such that $$x*(x^{-1}) = 1.$$
+\end{itemize}
+\end{definition}
+
+Note that with these Field Axioms, we can well define the algebraic laws of the $\mathbb{R}$ system. However, we are well served by having a set of order axioms as well which defines the ordered nature of the real number system. These will seem largely self explanatory. However, they become extremely critical when in the depths of a proof.\newline
+
+Indeed, it often seems like the \emph{intuitive} or \emph{obvious} ideas are the ones that we are most likely to stumble over.
+
+\begin{definition} \textbf{Order Axioms}\newline
+There is a relation $<$ on $\mathbb{R} \times \mathbb{R}$ that has the following properties:
+\begin{itemize}
+
+\item \textbf{Trichotomy Property:} Given $a,b \in \mathbb{R},$ one and only one of the following statements holds: \begin{center}
+$a<b,$  $b<a,$  $a=b$
+\end{center}
+\item \textbf{Transitive Property:} For all $a,b,c \in \mathbb{R},$
+\begin{center}
+$a<b$ and $b<c$ implies $a<c$
+\end{center}
+\item \textbf{The Additive Property:} For all $a,b,c \in \mathbb{R},$
+\begin{center}
+$a<b$ and $c\in \mathbb{R}$ implies $a+c < b+c.$
+\end{center}
+\item \textbf{The Multiplicative Properties:} For all $a,b,c \in \mathbb{R},$
+\begin{center}
+$a<b$ and $c>0$ implies $ac < bc$
+\end{center}
+and
+\begin{center}
+$a<b$ and $c<0$ implies $bc < ac.$
+\end{center}
+\end{itemize}
+\end{definition}
+
+The more eagle-eyed readers will notice that we used $>,$ which is a symbol which we have not defined. By $a>b$ we mean that $b<a.$\newline
+
+
+\subsubsection{The Completeness Axiom}
+
+We now work towards the third axiom needed in order to define $\mathbb{R}.$ However, first we will need two definitions which we refer back to frequently.
+
+\begin{definition}
+\textbf{Bounded Above:} The set $E\subset \mathbb{R}$ is said to be \emph{bounded above} if and only if there exists some $M \in \mathbb{R}$ such that $a\leq M$ for all $a\in E,$ in which case we can call $M$ the \emph{upper bound} of $E.$
+\end{definition}
+
+Note that bounding above does not mean that the upper bound is actually in the set. For example, we could say that the set of integers between 1 and 10 is bounded by 10 million. 
+
+\begin{definition}
+\textbf{Supremum:} A number $s$ is called a \emph{supremum} of the set $E$ if and only if $s$ is an upper bound of $E$ and $s \leq M$ for all upper bounds $M$ of $E.$ (in this case we can say that $E$ has a \emph{finite supremum} and write $s:= \sup E$
+\end{definition}
+
+Note that while upper bounds are not unique, there is a unique and singular supremum for any set which has a supremum. In the plainest English, the supremum of a set is simply the number larger than all other elements in the set.\newline
+
+There exists a logically equivalent set of terminology for dealing with the lower end of a set which we will define as follows.
+
+\begin{definition}
+\textbf{Bounded Below:} The set $E\subset \mathbb{R}$ is said to be \emph{bounded below} if and only if there exists some $m \in \mathbb{R}$ such that $a\geq m$ for all $a\in E,$ in which case we can call $m$ the \emph{lower bound} of $E.$
+\end{definition}
+
+As with upper bounds, a set may have infinitely many lower bounds.
+
+\begin{definition}
+\textbf{Infimum:} A number $t$ is called a \emph{infimum} of the set $E$ if and only if $t$ is a lower bound of $E$ and $t \geq m$ for all lower bounds $m$ of $E.$ (in this case we can say that $E$ has a \emph{finite infimum} and write $t:= \inf E$
+\end{definition}
+
+Our next theorem, which derives from the properties of suprema shows that we may approximate the supremum of a bounded set utilizing points in the bounded set.
+
+\begin{theorem} \textbf{Approximation Property of Suprema}\newline
+If $E$ has a finite supremum and $\varepsilon > 0$ is any positive number, then there exists a point $a \in E$ such that $$\sup E - \varepsilon < a \leq \sup E$$
+\end{theorem}
+
+Visually, we can imagine our 'a' being squeezed between the lower inequality and upper inequality allowing us to approximate the supremum.
+
+Finally we have the knowledge necessary to appreciate our third fundamental axiom
+
+\begin{definition} \textbf{Completeness Axiom:}\newline
+If $E$ is a non-empty subset of $\mathbb{R}$ that is bounded above, then $E$ has a finite supremum.
+\end{definition}
+
+The completeness axiom is utilized in many times throughout Real Analysis. As an example, we can use it to prove the following theorem.
+
+\begin{theorem} \textbf{Archimedean Principle:}\newline
+Given real numbers a and b, with $a > 0,$ there is an integer $n \in N$ such that $b < na$
+\end{theorem}
+
+\begin{proof}
+If $b <a,$ set $n=1.$ If $a \leq b,$ consider the set $E=\{k\in \mathbb{N}: ka \leq b\}.$ $E$ is non-empty since $1 \in E.$ Let $k \in E.$ Since $a > 0,$ it follows that $k \leq \frac{b}{a}.$ This proves that $E$ is bounded above by $\frac{b}{a}.$ Thus, by the completeness axiom, E has a finite supremum $s$ that belongs to $E,$ in particular, $s \in \mathbb{N}.$\newline
+Set $n=s+1.$ Then $n \in \mathbb{N}$ and n cannot belong to $E.$ Thus $na > b.$
+\end{proof}
+
+We use the archimedean principle in the proof of our next theorem. This can give you an idea of the incremental, building nature of Real Analysis. By this we mean, we prove one thing, and use that to prove the next thing, and so on.
+
+\begin{theorem}\textbf{Density of Rationals}\newline
+If $a,b \in \mathbb{R}$ satisfy $a<b,$ then there is a $q\in \mathbb{Q}$ such that $a < q < b$
+\end{theorem}
+In layman’s terms, no matter how closely two rationals lie to each other, there will always be a rational number between them.
+\begin{proof}
+Suppose first that $a > 0.$ Since $b-a >0,$ we may use the Archimedean Principle to choose a natural number n such that $$n > \max \{\frac{1}{a},\frac{1}{b-a}$$ and observe that both $\frac{1}{n} < a$ and $\frac{1}{n} < b-a.$\newline
+
+Consider the set $E = \{k\in \mathbb{N}:\frac{k}{n} \leq a\}.$ Since $1\in E,$ E is non-empty. Since $n > 0,$ E is bounded above by $na.$ Hence, $k_0 := \sup E$ exists and belongs to E, in particular to $\mathbb{N}.$\newline
+
+Set $m=k_0+1$ and $ q= \frac{m}{n}.$ Since $k_0$ is a supremum of E, m is not in the domain of E. Thus, $q > a.$\newline
+
+On the other hand, since $k_0$ is in the domain of E, it follows from our choice of n that
+$$b = a+(b-a) \geq \frac{k_0}{n} + (b-a) > \frac{k_0}{n} + \frac{1}{n} = \frac{m}{n} = q.$$
+Now suppose that $a \leq 0,$ choose, by the archimedean principle $k \in \mathbb{N}$ such that $k > -a$ then $0<k+a<k+b,$ and by the case already proved, there is an $r \in \mathbb{Q}$ such that $k+a<r<k+b.$ Therefore, $q:=r-k$ belongs to $\mathbb{Q}$ and satisfies the inequality $a<q<b.$
+\end{proof}
+
+What follows is a quick theorem regarding a relationship between suprema and infima.
+
+\begin{theorem}
+Let $E \subset \mathbb{R}$ be non-empty.
+\begin{itemize}
+\item E has a supremum if and only if $-E$ has an infimum, in which case $$\inf (-E) = -\sup E$$
+\item Likewise, E has an infimum if and only if $-E$ has a supremum, in which case $$\sup(-E) = -\inf E.$$
+\end{itemize}
+\end{theorem}
+
+For our last theorem of this section, we have chosen a broadly applicable theorem which will be very useful later on.
+
+\begin{theorem}
+Suppose that $A \subset B$ are non-empty subsets or $\mathbb{R}.$
+\begin{enumerate}
+\item If B has a supremum, then $\sup A \leq \sup B.$
+\item If B has an infimum, then $\inf A \geq \inf B.$
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+i) Since $A \subset B,$ any upper bound of B is an upper bound of A. Therefore, $\sup B$ is an upper bound of A. It follows from the completeness axiom that $\sup A$ exists, and by necessity, it cannot exceed the supremum of B.\newline
+ii) Clearly, $-A \subset -B.$ Thus, by our previously proved statement $$\inf A = -\sup (-A) \geq -\sup (-B) = \inf B.$$
+\end{proof}
+
+\subsection{Sequences}
+
+An \emph{sequence} is a function whose domain is $\mathbb{N}.$ A sequence f whose terms are $x_n := f(n)$ will be referenced by a sequence of terms $(x_1, x_2, ...)$ or by $\{x_n\}.$ Thus 1, 1/2, 1/4, 1/8 , ... is a representation of the sequence $\{1/2^{n-1}\}_{n \in \mathbb{N}}$ and 1, 2, 3, 4, ... is a representation of the sequence $\{n\}_{n \in \mathbb{N}}.$ \newline
+
+We can make an effort to bound sequences in much the way same way as we would bound sets. In fact, we do so by looking at the bounds of the infinite sets that the sequences form.
+
+\begin{definition}
+Let $\{x_n\}$ be a sequence of real numbers \newline
+
+i)	 The sequence $\{x_n\}$ is said to be \emph{bounded above} if and only if the set$\{x_n: n \in \mathbb{N}\}$ is bounded above. \newline
+
+ii)	 The sequence $\{x_n\}$ is said to be \emph{bounded below} if and only if the set $\{x_n: n \in \mathbb{N}\}$ is bounded below. \newline
+
+iii) $\{x_n\}$ is said to be \emph{bounded} if and ony if it is bounded above and bounded below.
+\end{definition}
+
+Without getting too bogged down too heavily in the idea of convergence, let us state a quick theorem regarding the relationship between bounding and convergence.
+
+\begin{theorem}
+Every convergent sequence is bounded.
+\end{theorem}
+
+\begin{proof}
+Given $\varepsilon=1,$ there is an $N \in \mathbb{N}$ such that $n \geq N$ implies $|x_n-a| < 1.$ Hence by the triangle inequality, $|x_n| < 1 + |a|$ for all $n \geq N.$ On the other hand, if $1 \leq n \leq N,$ then. $$|x_n| \leq M := max\{|x_1|,|x_2|, ...,|x_n|\}$$ Therefore, $\{x_n\}$ is dominated by $max\{|x_1|,|x_2|, ...,|x_n|\}$
+\end{proof}
+
+The limit concept is one which is absolutely fundamental to analysis. As such, we would do well to have a functional definition of the limit of a sequence. \newline
+
+Recall that in basic calculus we say that a sequence of real numbers $\{x)n\}$ converges to a number $a$ if $x_n$ gets arbitratily  near $a$ (i.e. the distance between a and $x_n$ gets small) as n gets large. Thus, given $\varepsilon > 0$ (no matter how small), if n is large enough,  $|x_n - a|$ is smaller than $\varepsilon$. This leads us to the following formalized definition of the limit of a sequence.
+
+\begin{definition}
+
+A sequence of real numbers $\{x_n\}$ is said to \emph{converge} to a real number $a \in \mathbb{R}$ if and only if $\forall \varepsilon > 0 \exists N \in \mathbb{N}$ (which, in general, depends upon $\varepsilon$) such that
+$$ n \geq N \Rightarrow |x_n - a| < \varepsilon$$
+\end{definition}
+
+%\subsubsection{Monotone and Cauchy Sequences}
+
+
+\subsubsection{Subsequences}
+We may sometimes find it useful to cut a sequence into bits. These subsequences can be useful in a variety of ways. A subsequence may be defined as follows: 
+
+\begin{definition}
+By a \emph{subsequence} of a sequence $\{x_n\}_{n \in \mathbb{N}}$, we shall mean a sequence of the form $\{x_{n_k}\}_{n \in \mathbb{N}},$ where $n_k \in \mathbb{N}$ and $n_1 < n_2 < ...$ 
+\end{definition}
+
+Thus a subsequence is obtained by removing values from the sequence. For example, we could take the sequence $\{-1^n\}$ and obtain the subsequences $-1, -1, -1, -1, ...$ and $1, 1, 1, 1, ...$
+
+\subsection{Limits of Functions and Continuity}
+
+Of central concern to the study of Analysis is whether a given sequence converges. We will go into several theorems that aid us in deciding on the status of a sequence.
+
+\begin{theorem} \emph{Squeeze Theorem}\newline
+Suppose that $\{x_n\},$ $\{y_n\},$ and $\{w_n\},$ are real sequences.\newline
+
+i) If $x_n \to a$ and $y_n \to a$ (the same a) as $n \to \infty$, and if there is an $N_0 \in \mathbb{N}$ such that
+$$x_n \leq w_n \leq y_n,  n \geq N_0$$
+then $w_n \to a$ as $n \to \infty$
+
+ii) If $x_n \to 0$ as $n \to \infty$ and $\{y_n\}$ is bounded, then $x_n y_n \to 0$ as $n \to \infty$
+
+\end{theorem}
+
+Let us go very quickly through a proof regarding this, since it is one of our most commonly used theorems.
+
+\begin{proof}
+part i) Let $\varepsilon >0$ since $x_n$ and $y_n$ converge to a, choose $N_1,N_2 \in \mathbb{N}$ such that, $n \geq N_1$ implies $-\varepsilon < x_n - a < \varepsilon$ and $n \geq N_2$ implies $-\varepsilon < y_n - a < \varepsilon.$ Set $N = max\{N_0, N_1, N_2\}.$ If $n \geq N$ we have by hypothesis and by the choice of $N_1$ and $N_2$ that $$a-\varepsilon < x_n \leq w_n \leq y_n < a + \varepsilon;$$ that is, $|w_n -a| < \varepsilon$ for $n \geq N.$ We conclude that $w_n \to a$ as $n \to \infty.$\newline
+
+part ii) Suppose that $x_n \to 0$ and that there is an $M > 0$ such that $|y_n| \leq M$ for $n \in \mathbb{N}.$ Let $\varepsilon > 0$ and choose an $N \in \mathbb{N}$ such that $n \geq N$ implies $|x_n| < \varepsilon / M.$ Then $n \geq N$ implies $$|x_n y_n| < M \frac{\varepsilon}{M}=\varepsilon.$$
+We conclude that $x_n y_n \to 0$ as $n \to \infty.$
+\end{proof}
+
+Let us look at an example where the squeeze theorem makes our life extremely easy.
+
+\begin{example}
+Find $lim_{n \to \infty}2^{-n} \cos (n^3 - n^2 + n -13)$ \newline
+
+\textbf{Solution.} The factor $\cos(n^3 - n^2 + n -13)$ looks intimidating, but it is superfluous when we are looking for the limit of this sequence. \newline
+Indeed, since $|\cos(x)| \leq 1$ for all $x \in \mathbb{N},$ the sequence $2^{-n} \cos(n^3 - n^2 + n -13)$ is dominated by the $2^{-n}$ term. \newline
+Since $2^n > n,$ it is clear by the squeeze theorem that both $2^{-n} \to 0$ and that $2^{-n} \cos(n^3 - n^2 + n -13) \to 0$ as $n \to \infty$ 
+\end{example}
+
+Here is an extremely handy theorem which focuses on breaking up sequences in order to make finding limits more manageable:
+
+\begin{theorem}
+Suppose that $\{x_n\}$ and $\{y_n\}$ are real sequences and that $\alpha \in \mathbb{R}.$ If $\{x_n\}$ and $\{y_n\}$ are convergent, then
+\begin{enumerate}
+\item $\lim_{n \to \infty} (x_n + y_n) = \lim_{n \to \infty}x_n + \lim_{n \to \infty}y_n$
+\item $\lim_{n \to \infty} (\alpha x_n) = \alpha \lim_{n \to \infty} x_n$
+\item $\lim_{n \to \infty}(x_n y_n) = (\lim_{n \to \infty}x_n)(\lim_{n \to \infty}y_n)$\newline
+If, in addition, $y_n \neq 0$ and $\lim_{n \to \infty} y_n \neq 0,$ then
+\item $\lim_{n \to \infty} \frac{x_n}{y_n} = \frac{\lim_{n \to \infty}x_n}{\lim_{n \to \infty}y_n}$
+\end{enumerate}
+
+(in particular, all of these limits exist.)
+
+\end{theorem}
+
+These theorems are quite handy for breaking up a sequence in order to decide whether it converges or not. On the subject of a sequence not converging, it would be well for us to have an adequate definition of divergence going forward.
+
+\begin{definition}
+Let $\{x_n\}$ be a sequence of real numbers
+\begin{enumerate}
+\item $\{x_n\}$ is said to \emph{diverge} to $+\infty$ (notation: $x_n \to +\infty$ as $n \to \infty$ or $\lim_{n \to \infty} x_n = +\infty$ if and only if for each $M \in \mathbb{R}$ there exists an $N \in \mathbb{N}$ such that $$n \geq N \rightarrow x_n > M.$$
+\item $\{x_n\}$ is said to \emph{diverge} to $-\infty$ (notation: $x_n \to -\infty$ as $n \to \infty$ or $\lim_{n \to \infty} x_n = -\infty$ if and only if for each $M \in \mathbb{R}$ there exists an $N \in \mathbb{N}$ such that $$n \geq N \rightarrow x_n < M.$$
+\end{enumerate}
+\end{definition}
+
+Notice that by this definition $x_n \to +\infty$ if and only if given $M \in \mathbb{R},$ $x_n$ is greater than M for a sufficiently large n; that is that $x_n$ eventually exceeds M, no matter how arbitrarily large. Likewise, $x_n \to -\infty$ if and only if $x_n$ is eventually less than M, no matter how large and negative it may be.\newline
+
+Now we will state a theorem regarding divergent sequences which comes in very handy when dealing with sequences which contain divergent pieces.
+
+\begin{theorem}
+Suppose that $\{x_n\}$ and $\{y_n\}$ are real sequences such that $x_n \to +\infty$ (respectively, $x_n \to -\infty$) as $n \to \infty.$
+\begin{enumerate}
+\item If $y_n$ is bounded below (respectively, $y_n$ is bounded above), then 
+\begin{center}
+$\lim_{n \to \infty} (x_n + y_n) = +\infty$ (respectively, $\lim_{n \to \infty}(x_n +y_n) = -\infty)$
+\end{center}
+\item If $\alpha > 0,$ then
+\begin{center}
+$\lim_{n \to \infty}(\alpha x_n) = + \infty$ (respectively, $\lim_{n \to \infty}(\alpha x_n) = -\infty)$
+\end{center}
+\item If $y_n > M_0$ for some $M_0 > 0$ and all $N \in \mathbb{N},$ then
+\begin{center}
+$\lim_{n \to \infty}(x_n y_n) = +\infty$ (respectively, $\lim_{n \to \infty} (x_n y_n) = -\infty)$
+\end{center}
+\item If $\{y_n\}$ is bounded and $x_n \neq 0,$ then
+\begin{center}
+$\lim_{n \to \infty}\frac{y_n}{x_n} = 0.$
+\end{center}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+We suppose for simplicity that $x_n \to +\infty$ as $n \to \infty$
+\begin{enumerate}
+\item By hypothesis, $y_n \geq M_0$ for some $M_0 \in \mathbb{R}.$ Let $M \in \mathbb{R},$ set $M_1 = M-M_0.$ Since $x_n \to +\infty$ choose $N \in \mathbb{N}$ such that $n \geq N$ implies $x_n > M_1.$ Then $n \geq N$ implies $x_n + y_n > M_1 + M_0 = M.$
+\item Let $M \in \mathbb{R}$ and set $M_1 = \frac{M}{\alpha}.$ Choose $N \in \mathbb{N}$ such that $n \geq N$ implies $x_n > M_1.$ Since $\alpha < 0$ we concluded that $\alpha x_n > \alpha M_1 = M$ $\forall n \geq N$
+\item Let $M \in \mathbb{R}$ and set $M_1 = \frac{M}{M_0}$ Choose $N \in \mathbb{N}$ such that $n \geq N$ implies that $x_n > M_1.$ Then $n \geq N$ implies that $x_n y_n > M_1 M_0 = M.$
+\item Let $\varepsilon > 0.$ Choose $M_0 > 0$ such that $|y_n| \leq M_0$ and $M_1 > 0$ sufficiently large that $\frac{M_0}{M_1} < \varepsilon.$ Choose $N \in \mathbb{R}$ such that $n \geq N$ implies $x_n > M_1.$ Then $n \geq N$ implies that $$|\frac{y_n}{x_n}| = \frac{|y_n|}{x_n} < \frac{M_0}{M_1} < \varepsilon.$$
+\end{enumerate}
+\end{proof}
+
+If we adopt the conventions
+\begin{center}
+\begin{tabular}{c c l
+}
+$x+\infty=\infty$ & $x-\infty=-\infty$ & $x \in \mathbb{R}$\\
+$x * \infty = \infty$ & $x * -\infty = -\infty$ & $x > 0$ \\
+$x * \infty = -\infty$ & $x * -\infty = \infty$ & $x < 0$ \\
+$\infty + \infty = \infty$ & $-\infty - \infty = -\infty$ & \\
+$\infty * \infty =$ & $-\infty * -\infty =$ & $\infty$ \\
+$\infty * -\infty =$ & $-\infty *\infty =$	& $-\infty$ \\ 
+\end{tabular}
+\end{center}
+
+Then our theorem contains the following corollary.
+\begin{corollary}
+Let $\{x_n\},\{y_n\}$ be real sequences and $\alpha, x, y$ be extended real numbers. If $x_n \to x$ and $y_n \to y$ as $n \to \infty$ then $$\lim_{n \to \infty} x_n y_n = x + y$$ Provided that the right side is not of the form $\infty - \infty, $ and $$\lim_{n \to \infty} \alpha x_n = \alpha x, \lim_{n \to \infty} x_n y_n = xy$$ Provided that none of these products is of the form $0 * \pm \infty$
+\end{corollary}
+
+We see from these theorems that a divergent piece or term in a sequence is enough to make the entire sequence divergent (or converge to 0 if it happens to be a denominator). In effect, it can poison an otherwise well behaved sequence, and as such is something to look out for. \newline
+
+Last but not least, we will conclude our discussion of Real Analysis with the Comparison Theorem, which is extremely useful for bounding sequences.
+
+\begin{theorem}
+Suppose that $\{x_n\}$ and $\{y_n\}$ are convergent sequences. If there is an $N_0 \in \mathbb{N}$ such that $$x_n \leq y_n, \forall n \geq N_0$$ then $$\lim_{n \to \infty} x_n \leq a\lim_{n \to \infty} y_n$$ In particular, if $x_n \in [a,b]$ converges to some point $c$ then $c$ must belong to $[a,b].$
+\end{theorem}
+
+\begin{proof}
+Suppose that the first statement is false; that is to say that $$x_n \leq y_n, \forall n \geq N_0$$ holds but $x:=\lim_{n \to \infty} x_n$ is greater than $y:=lim_{n \to \infty} y_n.$ Set $\varepsilon = \frac{x-y}{2}.$ Choose $N_1 > N_0$ such that $|x_n - x| < \varepsilon$ and $|y_n -y < \varepsilon$ for $n \geq N_1$. Then for such an n, $$x_n > x - \varepsilon = x - (\frac{x-y}{2}) = y + (\frac{x-y}{2}) = y + \varepsilon > y_n, $$ which contradicts the statement we made in the beginning ($x_n \leq y_n, \forall n \geq N_0$). This proves our first statement. \newline
+
+We conclude by noting that the second statement follows from the first, since $ a \leq x_n \leq b$ implies that $a \leq c \leq b$
+\end{proof}
+
+One way to remember this result is to say that the limit of an inequality is the inequality of the limits, provided that these limits exist. We shall call this process taking the limit of an inequality. The following corollary contains an implication of the comparison theorem which is important to remember.
+
+\begin{corollary}
+$$x_n < y_n \rightarrow \lim_{n \to \infty}x_n \leq \lim_{n \to \infty}y_n$$
+However, this does NOT mean the following
+$$x_n < y_n \rightarrow \lim_{n \to \infty}x_n < \lim_{n \to \infty}y_n.$$
+We do not necessarily know what x and y converge to, so this statement does not work.
+\end{corollary}

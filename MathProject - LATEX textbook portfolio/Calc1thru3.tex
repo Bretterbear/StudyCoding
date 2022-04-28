@@ -1,0 +1,143 @@
+\section{Calculus I - III} %Each summary that you do in this class will be a section.  Use \subsection and \subsubsection commands to create sections within the summary.
+
+We will begin our summaries of math courses with a brief summary of some of the topics covered in Calculus courses taken at the university level. Calculus is a fundamental tool with far reaching applications to the STEM fields and beyond.\newline
+
+Unless otherwise stated, information  for the following summary of calculus is taken from~\cite{Calculus}.
+
+%Please note that you must include at least 1 - 2 topics from Calc. I, 1 - 2 topics from Calc. 2, and 1 - 2 topics from Calc. 3.  The subsection/subsections below are topics from Calculus 1, 2, & 3.  You should delete the ones that you don't use.
+
+\subsection{Definition of Derivative} %The subsection command creates a section within your summary.  Below you will see a sample of some code and writing.  You see that when you want to reference something you use the command \cite{Nickname of Work}.  This is how you will do the referencing for your summaries.  In the .bib file, you will put down the actual informaiton of the work corresponding to the nickname you have given it.  Then your references will automatically be formatted for you.  If you use only one reference (like your old calculus textbook) for the summary, then you can simply in the opening paragraph state something like "The information for the following summary of calculus is taken from~\cite{Nickname of Source} unless otherwise cited."  Remember don't just copy from your source (except definitions and theorems).  You should write things in your own words/style when possible.  If you are including an example from your homework, quiz, etc., you should say something like, "The following example is a problem I worked out as assigned homework from~\{Nickname of source} in my MATH-MXXX class."  If the class wasn't taken at IUE, then state the name of class and where you took it.
+
+The \emph{derivative} of a function $f(x)$ gives the instantaneous rate of change of the function, and the value of the derivative at $x$ is the value of the slope of a line tangent to the graph of $f(x)$ at that point~\cite{Saxon}.  A formal definition from~\cite{Johnson} is given below. 
+
+\begin{definition}  For any given function $f$ the \emph{derivative} of $f$ at the number $x$ can be denoted $f'(x)$, and defined as follows: $$f'(x) = \lim_{h\to0} \dfrac{f(x + h) - f(x)}{h}.$$  An alternative definition for the derivative of is given below.  $$f'(x) = \lim_{x\to{a}} \dfrac{f(x) - f(a)}{x - a}.$$
+\end{definition}
+
+\subsection{Rules for Differentiation}     
+\subsubsection{Derivatives of Poynomials and Exponential Functions}
+What follows are several rules for finding the derivative of common polynomial and exponential functions.
+
+\begin{theorem} The derivative of a constant function c with respect to a variable x is as follows: $$ \dfrac{d}{dx}(c) = 0. $$ 
+\end{theorem}
+
+\begin{theorem} The derivative of a x with respect to a variable x is as follows: $$ \dfrac{d}{dx}(x) = 1. $$ This can be generalized for all multiples of x as: $$ \dfrac{d}{dx}(cx) = c. $$ 
+\end{theorem}
+
+The derivative of a constant function, and the derivative of the function x are both specialized cases of the power rule. The power rule allows us to differentiate any power of x and can be stated as follows: 
+\begin{theorem} The Power Rule: $$\dfrac{d}{dx}(cx^n) = cnx^{n-1}$$
+
+\end{theorem}
+
+From here, we must also define how to deal with the addition and subtraction operations relating to differentiation. The derivative of sums or differences is found by breaking the function down into individual chunks and finding the derivatives of their constituent parts.
+
+\begin{theorem} Sum Rule: $$\dfrac{d}{dx}(f(x)+g(x)) = \dfrac{d}{dx}f(x) + \dfrac{d}{dx}g(x)$$
+Likewise, there is very little difference between the derivative of a sum or of a difference.
+Difference Rule: $$\dfrac{d}{dx}(f(x)-g(x)) = \dfrac{d}{dx}f(x) - \dfrac{d}{dx}g(x)$$
+\end{theorem}
+
+Next we must define a way to deal with exponentials and functions with a variable as an exponent.
+
+\begin{theorem}
+Derivative of the exponential function:
+$$\dfrac{d}{dx}e^x = e^x $$
+Please note that this is actually a specialized form of a more general derivative.
+$$\dfrac{d}{dx}a^x = a^xln(a).$$
+In our first formula, ln(e) cancels out leaving only the first term
+\end{theorem}
+
+\subsubsection{Product and Quotient rules}
+In order to differentiate the widest possible range of functions, there must be rules to deal with functions composed of products and quotients of other functions. Luckily a simple set of rules to do so exists. 
+\begin{theorem} Product Rule
+
+Let F(x) = f(x)g(x) where f(x) and g(x) are differentiable functions where 
+$$\dfrac{d}{dx}f(x) = f'(x)$$
+and 
+$$\dfrac{d}{dx}g(x) = g'(x).$$
+
+Then the derivative of F(x) is:
+$$\dfrac{d}{dx}F(x) = f'(x)g(x) + f(x)g'(x)$$
+
+\end{theorem}
+
+After this we need a way to deal with Functions that are the quotient of other functions.
+\begin{theorem} Quotient Rule
+
+Let F(x) = f(x)/g(x) where f(x) and g(x) are differentiable functions where 
+$$\dfrac{d}{dx}f(x) = f'(x)$$
+and 
+$$\dfrac{d}{dx}g(x) = g'(x).$$
+
+Then the derivative of F(x) is:
+$$\dfrac{d}{dx}F(x) = \dfrac{f'(x)g(x) - f(x)g'(x)}{g^2(x)}.$$
+
+\end{theorem}
+
+\subsubsection{Chain Rule}
+Our basic toolbox of derivative tools is nearly complete. However, we need to have a tool to deal with function composition. This refers to functions of the form:
+$$F(x) = f(g(x))$$
+where f(x) is a differentiable function with the derivative f'(x) and g(x) is a differentiable function with the derivative g'(x).
+\begin{theorem} Chain Rule:
+$$\dfrac{d}{dx}F(x) = \dfrac{d}{dx}f(g(x)) = f'(g(x))g'(x).$$
+
+\end{theorem}
+
+\subsection{Definite integral}
+Integration at its most basic deal with finding the area under a curve. This has many applications because any continuous function can be thought of as tracing a curve. A definite integral is the area under a continuous curve with defined endpoints.
+
+\begin{theorem}
+Definite Integral:
+$$\int_a^b f(x)dx = \lim_{n \to \infty} \sum_{i=0}^{n}f(x_i^*)\Delta x $$
+
+where  $\Delta x$ is the size of the step between successive elements of f(x)
+and $f(x_i)$ denotes element i of f(x) between the limits of a and b.1
+
+\end{theorem}
+
+
+\subsection{Techniques of integration}
+Integration has many rules which function similarly to the rules of differentiation.
+
+This makes it possible for differentiation and integration to undo each other. This means that $\dfrac{d}{dx} \int f(x)dx = f(x)$
+
+For non-trivial integrals, we have an array of techniques to enable us to find solutions. One of these techniques will be detailed in the sections to follow.
+
+\subsubsection{Parts}
+Integration by Parts is, in some ways a complement to the product rule from differentiation.
+It allows one to find an integral of a product. With continuous functions u and v it takes the form:
+$$ \int udv = uv - \int vdu.$$
+This can be a little difficult to understand, so we can rewrite this with the example functions f(x) and g(x) to get:
+$$ \int f(x)g'(x) dx = f(x)g(x) - \int g(x)f'(x).$$ 
+
+\subsection{Partial Derivatives}
+Partial variables deal with functions of two or more variables. In the simplest case, it deals with a function of two variables.
+\begin{definition}
+A function f of two variables is a rule that assigns to each ordered
+pair of real numbers ͑x, y͒ in a set D a unique real number denoted by f(x,y). The
+set D is the domain of f and its range is the set of values that f takes on, that is,
+͕ $f{(x,y) | (x,y) \in D͖}.$
+\end{definition}
+
+Functions in 2 variables are graphed in the following way:
+\begin{definition}
+If f is a function of two variables with domain D, then the graph of
+f is the set of all points (x, y, z) in $‬R^3$ such that z = f(x, y) and (x, y) is in D.
+\end{definition}
+
+In the same way that continuity is essential to differentiation in one variable, it is also essential to differentiation in multiple variables. We define continuity in the following way:
+\begin{definition}
+A function f of two variables is called continuous at (a, b) if
+$\lim_{{(x,y)} \to {(a,b)}} f(x, y) = f (a, b͒)$
+We say f is continuous on D if f is continuous at every point a, b in D .
+\end{definition}
+
+Now we have the essential definitions to define our partial derivatives.
+
+\begin{theorem}
+Partial Derivative:
+
+If f is a function of two variables, its partial derivatives are the functions $f_x$ and $f_y$ defined by $f_x(x, y) = \lim_{h\to{0}}, \dfrac{f(x+h,y) - f(x,y)}{h}$
+and $f_y(x, y) = \lim_{h\to{0}}, \dfrac{f(x,y+h) - f(x,y)}{h}$
+
+\end{theorem}
+
+
